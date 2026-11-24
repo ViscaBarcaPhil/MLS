@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MLS League | Official League Hub</title>
+<style>
+:root{--navy:#071426;--navy2:#0d2038;--blue:#1689ff;--red:#ef3340;--ink:#101827;--muted:#64748b;--line:#e5eaf1;--bg:#f3f6fa;--white:#fff;--green:#0b9665}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}
+.topbar{height:5px;background:linear-gradient(90deg,var(--blue) 0 50%,var(--red) 50%)}
+header{background:var(--navy);color:white;position:sticky;top:0;z-index:10;box-shadow:0 5px 22px #06132635}
+.head-inner{max-width:1180px;margin:auto;padding:17px 22px;display:flex;align-items:center;gap:30px}
+.brand{display:flex;align-items:center;gap:11px;min-width:max-content}.brand-mark{width:43px;height:48px;object-fit:contain;display:block}
+.brand-mark-fallback{width:43px;height:48px;border:2px solid white;display:grid;place-items:center;font-weight:950;font-size:19px;letter-spacing:-2px;background:linear-gradient(145deg,#1689ff 0 49%,#ef3340 50%)}.brand-name{font-weight:950;letter-spacing:.07em;font-size:17px;line-height:1.05}.brand-name small{display:block;font-size:9px;letter-spacing:.25em;color:#a9bdd5;margin-top:5px}
+nav{display:flex;gap:5px;flex:1;overflow-x:auto}nav button{border:0;background:transparent;color:#c5d2e2;padding:12px 13px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border-bottom:2px solid transparent;white-space:nowrap}nav button.active,nav button:hover{color:white;border-bottom-color:var(--blue)}
+.season{font-size:11px;color:#b7c8db;font-weight:800;letter-spacing:.1em;white-space:nowrap}
+main{max-width:1180px;margin:auto;padding:26px 22px 70px}
+.hero{background:linear-gradient(112deg,#071426 0%,#102c4d 60%,#0a1c32 100%);color:white;border-radius:18px;padding:38px 40px;position:relative;overflow:hidden;min-height:220px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.hero:after{content:"MLS";position:absolute;right:5%;top:-44px;font-size:190px;font-weight:1000;letter-spacing:-.1em;color:#ffffff09;transform:skew(-9deg);pointer-events:none}
+.kicker{font-size:10px;font-weight:900;letter-spacing:.25em;color:#7dbdff;text-transform:uppercase}.hero h1{font-size:clamp(32px,5vw,53px);line-height:.98;margin:12px 0;font-weight:950;letter-spacing:-.045em;text-transform:uppercase}.hero p{color:#c5d5e6;max-width:490px;margin:0;font-size:14px;line-height:1.6}.hero-side{z-index:1;text-align:right}.hero-side strong{display:block;font-size:52px;line-height:1;font-weight:950}.hero-side span{font-size:10px;color:#9eb4cd;letter-spacing:.2em;font-weight:800}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin:30px 0 15px}.section-head h2{font-size:21px;letter-spacing:-.03em;margin:0;font-weight:950;text-transform:uppercase}.section-head p{margin:5px 0 0;color:var(--muted);font-size:12px}.eyebrow{font-size:9px;color:var(--blue);font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+.grid{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}.panel{background:white;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 4px 16px #10213a08}.panel-title{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.panel-title h3{margin:0;font-size:13px;font-weight:950;text-transform:uppercase;letter-spacing:.04em}.panel-title span{font-size:10px;color:var(--muted);font-weight:800}
+.conf-tabs{display:flex;gap:6px}.conf-tabs button,.filter-btn{border:1px solid var(--line);background:white;color:#526176;border-radius:7px;padding:8px 11px;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.04em}.conf-tabs button.active,.filter-btn.active{background:var(--navy);color:white;border-color:var(--navy)}
+table{width:100%;border-collapse:collapse}.club-name-button{border:0;background:transparent;padding:0;color:inherit;font:inherit;font-weight:inherit;text-align:left;cursor:pointer;text-decoration:underline;text-decoration-color:#b7c7d9;text-underline-offset:3px}th{font-size:9px;color:#8793a4;text-transform:uppercase;letter-spacing:.08em;text-align:right;padding:11px 9px;background:#f8fafc}th:first-child,td:first-child{text-align:left;padding-left:16px}td{padding:12px 9px;border-top:1px solid #edf1f5;text-align:right;font-size:12px;font-weight:700}td.team-cell{text-align:left;font-weight:850}.club-mini{display:inline-block;width:30px;height:30px;object-fit:contain;margin-right:8px;vertical-align:middle;flex:0 0 auto}.pts{color:var(--blue);font-weight:950}.empty{padding:28px 18px;text-align:center;color:#7b8797;font-size:12px;line-height:1.6}
+.match-list{padding:4px 16px}.match{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:14px 2px;border-bottom:1px solid #edf1f5}.match:last-child{border-bottom:0}.match-team{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:850;min-width:0}.match-team.right{justify-content:flex-end;text-align:right}.match-team b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.match-score{font-size:15px;font-weight:950;white-space:nowrap}.match-score small{display:block;font-size:8px;color:#8793a4;text-align:center;letter-spacing:.1em}.match-date{font-size:9px;color:#8793a4;text-align:center;min-width:65px}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.club-card{background:white;border:1px solid var(--line);border-radius:12px;padding:16px 12px;text-align:center;transition:.18s}.club-card:hover{transform:translateY(-3px);box-shadow:0 8px 22px #10213a12}.crest{width:54px;height:54px;object-fit:contain;display:block;margin:0 auto 10px;border-radius:0;background:transparent;box-shadow:none}.club-card h3{font-size:11px;margin:0;font-weight:900}.club-card p{font-size:9px;color:#8491a2;margin:5px 0 0}
+.page-title{margin:8px 0 20px}.page-title h1{font-size:34px;margin:0;text-transform:uppercase;font-weight:950;letter-spacing:-.04em}.page-title p{color:var(--muted);font-size:13px;margin:6px 0 0}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:14px 0}.toolbar input,.toolbar select,.field input,.field select{border:1px solid var(--line);background:white;border-radius:8px;padding:10px 12px;font-size:12px;min-width:150px;color:var(--ink)}.primary{border:0;background:var(--blue);color:white;border-radius:8px;padding:10px 14px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.05em}.secondary{border:1px solid var(--line);background:white;color:#435168;border-radius:8px;padding:9px 12px;font-size:10px;font-weight:900;text-transform:uppercase}.danger{background:#fff1f2;color:#be123c;border:1px solid #fecdd3;border-radius:7px;padding:6px 9px;font-size:10px;font-weight:900}
+.club-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.club-detail{padding:19px}.club-detail-top{display:flex;align-items:center;gap:13px}.club-detail .crest{margin:0;width:62px;height:62px}.club-detail h3{margin:0;font-size:15px}.club-detail small{color:var(--muted)}.club-detail p{font-size:11px;color:#68778b;line-height:1.5;margin:15px 0 0}
+.club-card,.club-detail{cursor:pointer}.club-card:focus,.club-detail:focus{outline:3px solid #8fc5ff;outline-offset:2px}.club-open{display:inline-block;margin-top:12px;color:var(--blue);font-size:9px;font-weight:950;letter-spacing:.08em;text-transform:uppercase}.profile-hero{display:flex;align-items:center;gap:20px;background:linear-gradient(120deg,#071a33,#123d69);color:white;border-radius:15px;padding:24px;margin-bottom:16px}.profile-hero .crest{width:96px;height:96px;margin:0;background:white;border-radius:12px;padding:8px}.profile-hero h1{font-size:clamp(24px,4vw,38px);margin:0;font-weight:950;text-transform:uppercase}.profile-hero p{margin:6px 0 0;color:#b9cce0;font-size:11px;letter-spacing:.12em;text-transform:uppercase}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}.profile-panel{background:white;border:1px solid var(--line);border-radius:13px;overflow:hidden}.profile-panel h3{font-size:12px;text-transform:uppercase;margin:0;padding:15px 17px;border-bottom:1px solid var(--line)}.profile-panel-body{padding:14px 17px}.profile-stat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.profile-stat{background:white;border:1px solid var(--line);border-radius:10px;padding:12px}.profile-stat span{display:block;color:var(--muted);font-size:9px;font-weight:900}.profile-stat strong{display:block;font-size:21px;margin-top:5px}.profile-row{padding:10px 0;border-bottom:1px solid #edf1f5;font-size:11px}.profile-row:last-child{border-bottom:0}.profile-row b{font-weight:900}.profile-back{margin-bottom:14px}@media(max-width:650px){.profile-grid{grid-template-columns:1fr}.profile-stat-grid{grid-template-columns:repeat(3,1fr)}.profile-hero{padding:18px;gap:14px}.profile-hero .crest{width:72px;height:72px}}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}.stat-box{background:white;border:1px solid var(--line);border-radius:12px;padding:17px}.stat-box span{font-size:9px;color:#7b8797;text-transform:uppercase;letter-spacing:.12em;font-weight:900}.stat-box strong{display:block;font-size:27px;margin-top:6px;font-weight:950}
+.form-panel{padding:18px}.form-panel h3{font-size:13px;text-transform:uppercase;margin:0 0 14px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-size:9px;font-weight:900;text-transform:uppercase;color:#69788d;letter-spacing:.08em}.field input,.field select{width:100%}.form-actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}.notice{background:#fff8e7;border:1px solid #f6df9e;color:#76561a;padding:12px 14px;border-radius:9px;font-size:11px;line-height:1.5;margin-bottom:15px}
+.hidden{display:none!important}.muted{color:var(--muted)}.right{text-align:right}.pill{display:inline-block;border-radius:20px;padding:4px 8px;background:#eaf4ff;color:#176bc1;font-size:9px;font-weight:900;text-transform:uppercase}.table-wrap{overflow-x:auto}
+footer{background:var(--navy);color:#a8bad0;padding:25px 22px;text-align:center;font-size:10px;letter-spacing:.06em}footer strong{color:white}
+@media(max-width:850px){.head-inner{flex-wrap:wrap;gap:12px}.season{margin-left:auto}.grid{grid-template-columns:1fr}.cards{grid-template-columns:repeat(3,1fr)}.club-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){main{padding:17px 13px 45px}.head-inner{padding:13px}.hero{padding:26px 22px;min-height:190px}.hero-side{display:none}.cards{grid-template-columns:repeat(2,1fr)}.club-grid{grid-template-columns:1fr}.stat-grid{grid-template-columns:repeat(2,1fr)}.form-grid{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+<header><div class="head-inner">
+  <div class="brand"><img class="brand-mark" src="https://assets.football-logos.cc/logos/usa/256x256/mls.138cdca5.png" alt="MLS crest logo"> <div class="brand-name">MLS LEAGUE<small>THE CLUB FOOTBALL NETWORK</small></div></div>
+  <nav id="nav">
+    <button class="active" data-page="home">Home</button><button data-page="standings">Standings</button><button data-page="fixtures">Fixtures & Results</button><button data-page="players">Player Stats</button><button data-page="clubs">Clubs</button><button data-page="transfers">Transfers</button><button data-page="admin">Admin</button>
+  </nav><div class="season">LEAGUE HUB · 2026</div>
+</div></header>
+<main>
+<section id="page-home">
+  <div class="hero"><div><div class="kicker">One league. Ten clubs. One champion.</div><h1>THIS IS<br>MLS LEAGUE.</h1><p>Your home for league standings, matchdays, player stats, club news and transfers. Follow every moment of the season.</p></div><div class="hero-side"><strong>10</strong><span>FOUNDING CLUBS</span></div></div>
+  <div class="section-head"><div><div class="eyebrow">The race is on</div><h2>League overview</h2><p>All teams start on zero. Add match results in the Admin panel to update the table.</p></div></div>
+  <div class="stat-grid" id="overview-stats"></div>
+  <div class="grid">
+    <div class="panel"><div class="panel-title"><h3>Southern Conference</h3><span>LEAGUE TABLE</span></div><div class="table-wrap" id="home-south"></div></div>
+    <div class="panel"><div class="panel-title"><h3>Latest results</h3><span>RECENT MATCHES</span></div><div id="home-results" class="empty">No results yet. Add a match in the Admin panel.</div></div>
+  </div>
+  <div class="section-head"><div><div class="eyebrow">The competition</div><h2>Meet the clubs</h2></div><button class="secondary" onclick="showPage('clubs')">View all clubs →</button></div>
+  <div class="cards" id="home-clubs"></div>
+</section>
+<section id="page-standings" class="hidden">
+  <div class="page-title"><div class="eyebrow">The table</div><h1>Standings</h1><p>League positions update automatically when you enter match scores.</p></div>
+  <div class="conf-tabs"><button class="active" data-conf="south">Southern Conference</button><button data-conf="north">Northern Conference</button></div>
+  <div class="panel" style="margin-top:12px"><div class="panel-title"><h3 id="standings-heading">Southern Conference</h3><span>GP · W · D · L · GF · GA · GD · PTS</span></div><div id="standings-table" class="table-wrap"></div></div>
+</section>
+<section id="page-fixtures" class="hidden">
+  <div class="page-title"><div class="eyebrow">Match centre</div><h1>Fixtures & Results</h1><p>See upcoming games and completed match scores.</p></div>
+  <div class="toolbar"><select id="fixture-filter"><option value="all">All matches</option><option value="upcoming">Upcoming</option><option value="played">Completed</option></select></div>
+  <div class="panel"><div class="panel-title"><h3>Match schedule</h3><span id="fixture-count">0 MATCHES</span></div><div id="fixture-list" class="match-list empty">No fixtures have been added yet.</div></div>
+</section>
+<section id="page-players" class="hidden">
+  <div class="page-title"><div class="eyebrow">The individuals</div><h1>Player statistics</h1><p>Track goals, assists and appearances across the league.</p></div>
+  <div class="stat-grid" id="player-summary"></div>
+  <div class="toolbar"><input id="player-search" placeholder="Search player or club..."></div>
+  <div class="panel"><div class="panel-title"><h3>Player leaderboard</h3><span>GOALS & ASSISTS</span></div><div id="player-table" class="table-wrap"></div></div>
+</section>
+<section id="page-clubs" class="hidden">
+  <div class="page-title"><div class="eyebrow">Ten clubs. Two conferences.</div><h1>Club directory</h1><p>Explore every club competing in MLS League.</p></div>
+  <div class="conf-tabs"><button class="active" data-club-conf="all">All clubs</button><button data-club-conf="south">Southern</button><button data-club-conf="north">Northern</button></div>
+  <div class="club-grid" id="club-directory" style="margin-top:14px"></div>
+</section>
+<section id="page-club-profile" class="hidden">
+  <button class="secondary profile-back" onclick="showPage('clubs')">← Back to clubs</button>
+  <div id="club-profile-content"></div>
+</section>
+<section id="page-transfers" class="hidden">
+  <div class="page-title"><div class="eyebrow">Squad movement</div><h1>Transfers</h1><p>Keep up with player signings, departures and loan moves.</p></div>
+  <div class="panel"><div class="panel-title"><h3>Transfer centre</h3><span id="transfer-count">0 MOVES</span></div><div id="transfer-list" class="empty">No transfers have been announced yet.</div></div>
+</section>
+<section id="page-admin" class="hidden">
+  <div class="page-title"><div class="eyebrow">League operations</div><h1>Admin panel</h1><p>Manage fixtures, scores, player statistics and transfers.</p></div>
+  <div class="notice"><strong>Important:</strong> This starter website saves changes in this browser using local storage. It is not password-protected and changes are not shared with other people or devices. For a public league site, we can connect a database and secure admin login next.</div>
+  <div class="grid">
+    <div class="panel form-panel"><h3>Add / update a match</h3><form id="match-form">
+      <div class="form-grid">
+        <div class="field"><label>Home club</label><select id="home-team" required></select></div><div class="field"><label>Away club</label><select id="away-team" required></select></div>
+        <div class="field"><label>Match date</label><input id="match-date" type="date" required></div><div class="field"><label>Status</label><select id="match-status"><option value="upcoming">Upcoming</option><option value="played">Completed</option></select></div>
+        <div class="field"><label>Home score</label><input id="home-score" type="number" min="0" placeholder="0"></div><div class="field"><label>Away score</label><input id="away-score" type="number" min="0" placeholder="0"></div>
+      </div><div class="form-actions"><button class="primary">Save match</button></div>
+    </form></div>
+    <div class="panel form-panel"><h3>Add / update a player</h3><form id="player-form">
+      <div class="form-grid">
+        <div class="field"><label>Player name</label><input id="p-name" required placeholder="Player name"></div><div class="field"><label>Club</label><select id="p-club" required></select></div>
+        <div class="field"><label>Position</label><select id="p-position"><option>GK</option><option>DEF</option><option>MID</option><option>FWD</option></select></div><div class="field"><label>Goals</label><input id="p-goals" type="number" min="0" value="0"></div>
+        <div class="field"><label>Assists</label><input id="p-assists" type="number" min="0" value="0"></div><div class="field"><label>Appearances</label><input id="p-apps" type="number" min="0" value="0"></div>
+      </div><div class="form-actions"><button class="primary">Save player</button></div>
+    </form></div>
+    <div class="panel form-panel"><h3>Record a transfer</h3><form id="transfer-form">
+      <div class="form-grid">
+        <div class="field"><label>Player name</label><input id="t-player" required></div><div class="field"><label>Transfer type</label><select id="t-type"><option>Signed</option><option>Transferred</option><option>Loan</option><option>Released</option></select></div>
+        <div class="field"><label>From club</label><select id="t-from"><option value="">Free agent / N/A</option></select></div><div class="field"><label>To club</label><select id="t-to"><option value="">Free agent / N/A</option></select></div>
+        <div class="field"><label>Date</label><input id="t-date" type="date"></div>
+      </div><div class="form-actions"><button class="primary">Save transfer</button></div>
+    </form></div>
+    <div class="panel form-panel"><h3>League data</h3><p class="muted" style="font-size:12px;line-height:1.6">Export a backup of your league data or reset this browser's data to the original ten-team setup.</p><div class="form-actions"><button class="secondary" id="export-btn">Export backup</button><button class="danger" id="reset-btn">Reset all data</button></div></div>
+  </div>
+</section>
+</main>
+<footer><strong>MLS LEAGUE</strong> · YOUR LEAGUE. YOUR CLUBS. YOUR HISTORY.<div style="margin-top:8px;font-size:9px;letter-spacing:0"><a href="https://football-logos.cc/usa/" target="_blank" rel="noopener" style="color:#a8bad0">Club crest artwork sourced via Football-Logos.cc</a>. Club marks are property of their respective owners.</div></footer>
+<script>
+const clubs=[
+{name:"FC Cincinnati",short:"CIN",conf:"south",color:"#f26a21",logo:"https://assets.football-logos.cc/logos/usa/256x256/fc-cincinnati.7fd3f806.png"},
+{name:"NYC FC",short:"NYC",conf:"south",color:"#1673c9",logo:"https://assets.football-logos.cc/logos/usa/256x256/new-york-city-fc.1aac252b.png"},
+{name:"LAFC",short:"LAFC",conf:"south",color:"#252525",logo:"https://assets.football-logos.cc/logos/usa/256x256/los-angeles-fc.5c1f456a.png"},
+{name:"Seattle Sounders",short:"SEA",conf:"south",color:"#087c55",logo:"https://assets.football-logos.cc/logos/usa/256x256/seattle-sounders-fc.643a572a.png"},
+{name:"FC Dallas",short:"DAL",conf:"south",color:"#d71935",logo:"https://assets.football-logos.cc/logos/usa/256x256/fc-dallas.0df10005.png"},
+{name:"Atlanta United",short:"ATL",conf:"north",color:"#a71930",logo:"https://assets.football-logos.cc/logos/usa/256x256/atlanta-united.a748f780.png"},
+{name:"Portland Timbers",short:"POR",conf:"north",color:"#176b45",logo:"https://assets.football-logos.cc/logos/usa/256x256/portland-timbers.7089e6ca.png"},
+{name:"LA Galaxy",short:"LAG",conf:"north",color:"#173c77",logo:"https://assets.football-logos.cc/logos/usa/256x256/la-galaxy.d6fcdb58.png"},
+{name:"Orlando City",short:"ORL",conf:"north",color:"#6336a5",logo:"https://assets.football-logos.cc/logos/usa/256x256/orlando-city.9f7d53f6.png"},
+{name:"Inter Miami",short:"MIA",conf:"north",color:"#f08aa8",logo:"https://assets.football-logos.cc/logos/usa/256x256/inter-miami-cf.e2a16c34.png"}
+];
+const defaults={matches:[],players:[],transfers:[]};
+let data=loadData(),activeConf="south",clubConf="all";
+function loadData(){try{return {...defaults,...JSON.parse(localStorage.getItem("mlsLeagueData")||"{}")}}catch(e){return structuredClone(defaults)}}
+function save(){localStorage.setItem("mlsLeagueData",JSON.stringify(data));renderAll()}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function club(name){return clubs.find(c=>c.name===name)||{name:name||"TBC",short:"TBC",color:"#64748b"}}
+function crest(name){let c=club(name);return `<img class="club-mini" src="${c.logo||""}" alt="${esc(c.name)} crest" loading="lazy" onerror="this.style.display='none'">`}
+function stats(){return clubs.map(c=>{let s={...c,gp:0,w:0,d:0,l:0,gf:0,ga:0,pts:0};data.matches.filter(m=>m.status==="played"&&m.homeScore!==""&&m.awayScore!==""&&m.homeScore!=null&&m.awayScore!=null).forEach(m=>{let hs=+m.homeScore,as=+m.awayScore;if(m.home===c.name){s.gp++;s.gf+=hs;s.ga+=as;if(hs>as){s.w++;s.pts+=3}else if(hs===as){s.d++;s.pts++}else s.l++}if(m.away===c.name){s.gp++;s.gf+=as;s.ga+=hs;if(as>hs){s.w++;s.pts+=3}else if(as===hs){s.d++;s.pts++}else s.l++}});s.gd=s.gf-s.ga;return s})}
+function sorted(conf){return stats().filter(s=>s.conf===conf).sort((a,b)=>b.pts-a.pts||b.gd-a.gd||b.gf-a.gf||a.name.localeCompare(b.name))}
+function tableHTML(rows){return `<table><thead><tr><th>#</th><th>Club</th><th>GP</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>PTS</th></tr></thead><tbody>${rows.map((s,i)=>`<tr><td>${i+1}</td><td class="team-cell">${crest(s.name)}<button type="button" onclick="openClub('${esc(s.name)}')" class="club-name-button">${esc(s.name)}</button></td><td>${s.gp}</td><td>${s.w}</td><td>${s.d}</td><td>${s.l}</td><td>${s.gf}</td><td>${s.ga}</td><td>${s.gd>0?"+":""}${s.gd}</td><td class="pts">${s.pts}</td></tr>`).join("")}</tbody></table>`}
+function matchHTML(m){let played=m.status==="played";return `<div class="match"><div class="match-team">${crest(m.home)}<b>${esc(m.home)}</b></div><div class="match-score">${played?`${m.homeScore} – ${m.awayScore}`:`<small>VS</small>`}<small>${played?"FULL TIME":esc(m.date||"DATE TBC")}</small></div><div class="match-team right"><b>${esc(m.away)}</b>${crest(m.away)}</div></div>`}
+function renderAll(){renderHome();renderStandings();renderFixtures();renderPlayers();renderClubs();renderTransfers();fillSelects()}
+function renderHome(){
+let played=data.matches.filter(m=>m.status==="played").length;
+document.getElementById("overview-stats").innerHTML=[["10","CLUBS"],[played,"MATCHES PLAYED"],[data.players.length,"PLAYERS TRACKED"]].map(x=>`<div class="stat-box"><span>${x[1]}</span><strong>${x[0]}</strong></div>`).join("");
+document.getElementById("home-south").innerHTML=tableHTML(sorted("south"));
+let recent=[...data.matches].filter(m=>m.status==="played").sort((a,b)=>(b.date||"").localeCompare(a.date||"")).slice(0,4);
+document.getElementById("home-results").className=recent.length?"match-list":"empty";
+document.getElementById("home-results").innerHTML=recent.length?recent.map(matchHTML).join(""):"No results yet. Add a match in the Admin panel.";
+document.getElementById("home-clubs").innerHTML=clubs.slice(0,5).map(c=>`<div class="club-card" role="button" tabindex="0" onclick="openClub('${esc(c.name)}')"><img class="crest" src="${c.logo}" alt="${esc(c.name)} crest" loading="lazy"><h3>${esc(c.name)}</h3><p>${c.conf==="south"?"SOUTHERN":"NORTHERN"}</p><span class="club-open">View club →</span></div>`).join("");
+}
+function renderStandings(){document.getElementById("standings-heading").textContent=activeConf==="south"?"Southern Conference":"Northern Conference";document.getElementById("standings-table").innerHTML=tableHTML(sorted(activeConf))}
+function renderFixtures(){let f=document.getElementById("fixture-filter")?.value||"all";let list=[...data.matches].filter(m=>f==="all"||m.status===f).sort((a,b)=>(a.date||"").localeCompare(b.date||""));document.getElementById("fixture-count").textContent=list.length+" MATCHES";let el=document.getElementById("fixture-list");el.className=list.length?"match-list":"empty";el.innerHTML=list.length?list.map(matchHTML).join(""):"No fixtures match this filter yet."}
+function renderPlayers(){let totalGoals=data.players.reduce((n,p)=>n+(+p.goals||0),0),totalAssists=data.players.reduce((n,p)=>n+(+p.assists||0),0);document.getElementById("player-summary").innerHTML=[[""+data.players.length,"PLAYERS"],[totalGoals,"GOALS"],[totalAssists,"ASSISTS"]].map(x=>`<div class="stat-box"><span>${x[1]}</span><strong>${x[0]}</strong></div>`).join("");let q=(document.getElementById("player-search")?.value||"").toLowerCase();let list=[...data.players].filter(p=>(p.name+" "+p.club).toLowerCase().includes(q)).sort((a,b)=>(+b.goals||0)-(+a.goals||0)||(+b.assists||0)-(+a.assists||0));document.getElementById("player-table").innerHTML=list.length?`<table><thead><tr><th>Player</th><th>Club</th><th>POS</th><th>APP</th><th>AST</th><th>G</th></tr></thead><tbody>${list.map((p,i)=>`<tr><td class="team-cell">${i+1}. ${esc(p.name)}</td><td class="team-cell">${crest(p.club)}${esc(p.club)}</td><td>${esc(p.position)}</td><td>${+p.apps||0}</td><td>${+p.assists||0}</td><td class="pts">${+p.goals||0}</td></tr>`).join("")}</tbody></table>`:"<div class='empty'>No players added yet. Add players in the Admin panel.</div>"}
+function renderClubs(){let list=clubs.filter(c=>clubConf==="all"||c.conf===clubConf);document.getElementById("club-directory").innerHTML=list.map(c=>{let s=stats().find(x=>x.name===c.name);return `<div class="panel club-detail" role="button" tabindex="0" onclick="openClub('${esc(c.name)}')"><div class="club-detail-top"><img class="crest" src="${c.logo}" alt="${esc(c.name)} crest" loading="lazy"><div><h3>${esc(c.name)}</h3><small>${c.conf==="south"?"Southern":"Northern"} Conference</small></div></div><p><b>${s.pts} pts</b> · ${s.gp} played · ${s.w} wins · ${s.gd>0?"+":""}${s.gd} goal difference</p><span class="club-open">View club →</span></div>`}).join("")}
+function openClub(name){let c=club(name);if(!c.logo)return;let s=stats().find(x=>x.name===c.name);let players=[...data.players].filter(p=>p.club===c.name).sort((a,b)=>(+b.goals||0)-(+a.goals||0));let matches=[...data.matches].filter(m=>m.home===c.name||m.away===c.name).sort((a,b)=>(a.date||"").localeCompare(b.date||""));let transfers=[...data.transfers].filter(t=>t.from===c.name||t.to===c.name).sort((a,b)=>(b.date||"").localeCompare(a.date||""));let matchRows=matches.length?matches.map(m=>{let home=m.home===c.name,opponent=home?m.away:m.home,score=m.status==="played"?`${home?m.homeScore:m.awayScore} – ${home?m.awayScore:m.homeScore}`:"Upcoming";return `<div class="profile-row"><b>${home?"vs":"at"} ${esc(opponent)}</b><span style="float:right">${score}</span><div class="muted" style="font-size:9px;margin-top:4px">${esc(m.date||"Date TBC")}</div></div>`}).join(""):'<div class="empty">No fixtures added for this club yet.</div>';let playerRows=players.length?players.map(p=>`<div class="profile-row"><b>${esc(p.name)}</b><span style="float:right">${+p.goals||0} G · ${+p.assists||0} A</span><div class="muted" style="font-size:9px;margin-top:4px">${esc(p.position||"Player")} · ${+p.apps||0} appearances</div></div>`).join(""):'<div class="empty">No players added for this club yet. Add them in Admin.</div>';let transferRows=transfers.length?transfers.map(t=>`<div class="profile-row"><b>${esc(t.player)}</b><span style="float:right">${esc(t.type)}</span><div class="muted" style="font-size:9px;margin-top:4px">${esc(t.from||"Free agent")} → ${esc(t.to||"—")} · ${esc(t.date||"Date TBC")}</div></div>`).join(""):'<div class="empty">No transfers recorded for this club.</div>';document.getElementById("club-profile-content").innerHTML=`<div class="profile-hero"><img class="crest" src="${c.logo}" alt="${esc(c.name)} crest"><div><h1>${esc(c.name)}</h1><p>${c.conf==="south"?"Southern":"Northern"} Conference · ${esc(c.short)}</p></div></div><div class="profile-stat-grid">${[[s.gp,"Played"],[s.w,"Wins"],[s.d,"Draws"],[s.l,"Losses"],[s.pts,"Points"]].map(x=>`<div class="profile-stat"><span>${x[1]}</span><strong>${x[0]}</strong></div>`).join("")}</div><div class="profile-grid"><div class="profile-panel"><h3>Squad & player stats</h3><div class="profile-panel-body">${playerRows}</div></div><div class="profile-panel"><h3>Fixtures & results</h3><div class="profile-panel-body">${matchRows}</div></div><div class="profile-panel"><h3>Club record</h3><div class="profile-panel-body"><div class="profile-row">Goals scored <b style="float:right">${s.gf}</b></div><div class="profile-row">Goals conceded <b style="float:right">${s.ga}</b></div><div class="profile-row">Goal difference <b style="float:right">${s.gd>0?"+":""}${s.gd}</b></div><div class="profile-row">League position <b style="float:right">${sorted(c.conf).findIndex(x=>x.name===c.name)+1}</b></div></div></div><div class="profile-panel"><h3>Transfers</h3><div class="profile-panel-body">${transferRows}</div></div></div>`;showPage("club-profile")}
+function renderTransfers(){let list=[...data.transfers].sort((a,b)=>(b.date||"").localeCompare(a.date||""));document.getElementById("transfer-count").textContent=list.length+" MOVES";let el=document.getElementById("transfer-list");el.className=list.length?"match-list":"empty";el.innerHTML=list.length?list.map(t=>`<div class="match"><div><b>${esc(t.player)}</b><div class="muted" style="font-size:10px;margin-top:4px">${esc(t.type)} · ${esc(t.date||"Date TBC")}</div></div><div style="font-size:11px;font-weight:800;text-align:right">${esc(t.from||"—")} <span style="color:#1689ff">→</span> ${esc(t.to||"—")}</div></div>`).join(""):"No transfers have been announced yet."}
+function fillSelects(){let opts=clubs.map(c=>`<option value="${c.name}">${c.name}</option>`).join("");["home-team","away-team","p-club"].forEach(id=>{let el=document.getElementById(id),v=el.value;el.innerHTML=opts;if(v)el.value=v});["t-from","t-to"].forEach(id=>{let el=document.getElementById(id),v=el.value;el.innerHTML='<option value="">Free agent / N/A</option>'+opts;if(v)el.value=v})}
+function showPage(p){document.querySelectorAll("main>section").forEach(s=>s.classList.add("hidden"));document.getElementById("page-"+p).classList.remove("hidden");document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===p));window.scrollTo({top:0,behavior:"smooth"})}
+document.querySelectorAll("nav button").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
+document.querySelectorAll("[data-conf]").forEach(b=>b.addEventListener("click",()=>{activeConf=b.dataset.conf;document.querySelectorAll("[data-conf]").forEach(x=>x.classList.toggle("active",x===b));renderStandings()}));
+document.querySelectorAll("[data-club-conf]").forEach(b=>b.addEventListener("click",()=>{clubConf=b.dataset.clubConf;document.querySelectorAll("[data-club-conf]").forEach(x=>x.classList.toggle("active",x===b));renderClubs()}));
+document.getElementById("fixture-filter").addEventListener("change",renderFixtures);
+document.getElementById("player-search").addEventListener("input",renderPlayers);
+document.getElementById("match-form").addEventListener("submit",e=>{e.preventDefault();let home=document.getElementById("home-team").value,away=document.getElementById("away-team").value,status=document.getElementById("match-status").value;if(home===away){alert("Choose two different clubs.");return}let hs=document.getElementById("home-score").value,as=document.getElementById("away-score").value;if(status==="played"&&(hs===""||as==="")){alert("Enter both scores for a completed match.");return}data.matches.push({home,away,date:document.getElementById("match-date").value,status,homeScore:status==="played"?hs:"",awayScore:status==="played"?as:""});e.target.reset();save();alert("Match saved. Standings have been updated if it was completed.")});
+document.getElementById("player-form").addEventListener("submit",e=>{e.preventDefault();data.players.push({name:document.getElementById("p-name").value,club:document.getElementById("p-club").value,position:document.getElementById("p-position").value,goals:document.getElementById("p-goals").value,assists:document.getElementById("p-assists").value,apps:document.getElementById("p-apps").value});e.target.reset();save();alert("Player saved.")});
+document.getElementById("transfer-form").addEventListener("submit",e=>{e.preventDefault();data.transfers.push({player:document.getElementById("t-player").value,type:document.getElementById("t-type").value,from:document.getElementById("t-from").value,to:document.getElementById("t-to").value,date:document.getElementById("t-date").value});e.target.reset();save();alert("Transfer saved.")});
+document.getElementById("export-btn").addEventListener("click",()=>{let blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="mls-league-backup.json";a.click();URL.revokeObjectURL(a.href)});
+document.getElementById("reset-btn").addEventListener("click",()=>{if(confirm("Delete all matches, players and transfers saved in this browser?")){data=structuredClone(defaults);save();alert("League data reset.")}});
+renderAll();
+</script>
+</body>
+</html>
