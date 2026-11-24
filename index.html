@@ -590,7 +590,28 @@ document.getElementById("match-form").addEventListener("submit",e=>{e.preventDef
 
 document.getElementById("player-form").addEventListener("submit",e=>{e.preventDefault();data.players.push({name:document.getElementById("p-name").value,club:document.getElementById("p-club").value,position:document.getElementById("p-position").value,goals:document.getElementById("p-goals").value,assists:document.getElementById("p-assists").value,saves:document.getElementById("p-saves").value,tackles:document.getElementById("p-tackles").value});e.target.reset();save();alert("Player saved.")});
 
-document.getElementById("transfer-form").addEventListener("submit",e=>{e.preventDefault();data.transfers.push({player:document.getElementById("t-player").value,type:document.getElementById("t-type").value,from:document.getElementById("t-from").value,to:document.getElementById("t-to").value,gameweek:document.getElementById("t-week").value.trim()});e.target.reset();save();alert("Transfer saved.")});
+
+document.getElementById("transfer-form").addEventListener("submit",e=>{
+e.preventDefault();
+let playerName=document.getElementById("t-player").value.trim();
+let from=document.getElementById("t-from").value;
+let to=document.getElementById("t-to").value;
+let player=data.players.find(p=>p.name.trim().toLowerCase()===playerName.toLowerCase()&&p.club===from);
+if(!player){alert("Player not found at the selected current club. Check the name and club.");return;}
+if(from===to){alert("Choose a different destination club.");return;}
+data.transfers.push({
+player:player.name,
+type:document.getElementById("t-type").value,
+from:from,
+to:to,
+gameweek:document.getElementById("t-week").value.trim()
+});
+player.club=to;
+e.target.reset();
+save();
+alert(player.name+" has been moved to "+to+"!");
+});
+
 document.getElementById("rating-form").addEventListener("submit",async e=>{e.preventDefault();const btn=e.target.querySelector('button[type="submit"]');if(btn)btn.disabled=true;try{const image=await uploadImageToStorage(document.getElementById("rating-image").files[0],"match-ratings");data.ratings=data.ratings||[];data.ratings.push({match:document.getElementById("rating-match").value.trim(),player:document.getElementById("rating-player").value.trim(),club:document.getElementById("rating-club").value,score:document.getElementById("rating-score").value,note:document.getElementById("rating-note").value.trim(),image,caption:document.getElementById("rating-caption").value.trim(),createdAt:Date.now()});e.target.reset();save();alert("Player rating published.")}catch(err){alert(err.message||"Could not publish this rating.")}finally{if(btn)btn.disabled=false}});
 document.getElementById("admin-content-lists").addEventListener("click",e=>{const btn=e.target.closest("[data-delete-type]");if(!btn)return;const type=btn.dataset.deleteType,index=Number(btn.dataset.deleteIndex),item=data[type]?.[index];if(!item)return;const label=type==="matches"?`${item.home} vs ${item.away}`:type==="players"||type==="totw"?item.name:type==="transfers"?item.player:type==="news"?item.title:item.player;if(confirm(`Delete ${label||"this item"} from ${type}?`)){data[type].splice(index,1);if(type==="totw"&&!data.totw.length)data.totwWeek="";save();}});
 document.getElementById("admin-rating-list").addEventListener("click",e=>{const btn=e.target.closest("[data-delete-rating]");if(!btn)return;const index=Number(btn.dataset.deleteRating),rating=data.ratings?.[index];if(!rating)return;if(confirm(`Delete ${rating.player}'s rating for ${rating.match}?`)){data.ratings.splice(index,1);save();}});
