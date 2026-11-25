@@ -499,10 +499,16 @@ function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&l
 
 // Compare labels such as "Gameweek 2" and "Gameweek 10" numerically.
 // Falls back to a numeric-aware text comparison for dates or custom labels.
+function normalizeMatchdayLabel(value){
+  const label=String(value??"").trim().replace(/[_-]+/g," ").replace(/\s+/g," ");
+  const week=label.match(/^(?:gam(?:e)?\s*week|gw)\s*#?\s*(\d+)$/i);
+  if(week)return "Gameweek "+Number(week[1]);
+  return label;
+}
 function compareGameweeks(a,b){
-  const labelA=String(a??"").trim(), labelB=String(b??"").trim();
-  const weekA=labelA.match(/(?:game\s*week|gw)\s*#?\s*(\d+)/i);
-  const weekB=labelB.match(/(?:game\s*week|gw)\s*#?\s*(\d+)/i);
+  const labelA=normalizeMatchdayLabel(a), labelB=normalizeMatchdayLabel(b);
+  const weekA=labelA.match(/^Gameweek\s+(\d+)$/i);
+  const weekB=labelB.match(/^Gameweek\s+(\d+)$/i);
   if(weekA&&weekB) return Number(weekA[1])-Number(weekB[1]);
   return new Intl.Collator(undefined,{numeric:true,sensitivity:"base"}).compare(labelA,labelB);
 }
@@ -601,7 +607,7 @@ function renderStandings(){document.getElementById("standings-heading").textCont
 function renderMatchdayCenter(){
  const matches=[...(data.matches||[])];
  const groups=new Map();
- matches.forEach(m=>{const label=String(m.gameweek||m.date||"Matchday TBC");if(!groups.has(label))groups.set(label,[]);groups.get(label).push(m);});
+ matches.forEach(m=>{const raw=String(m.gameweek||m.date||"Matchday TBC");const label=normalizeMatchdayLabel(raw);if(!groups.has(label))groups.set(label,[]);groups.get(label).push(m);});
  const labels=[...groups.keys()].sort(compareGameweeks);
  const select=document.getElementById("matchday-select");
  if(!labels.length){
@@ -621,7 +627,7 @@ function renderMatchdayCenter(){
   document.getElementById("matchday-summary").innerHTML='<div class="matchday-stat"><span>Fixtures</span><strong>'+selected.length+'</strong></div><div class="matchday-stat"><span>Completed</span><strong>'+completed+'</strong></div><div class="matchday-stat"><span>Remaining</span><strong>'+(selected.length-completed)+'</strong></div>';
   document.getElementById("matchday-fixtures-title").textContent=activeMatchday+" fixtures";
   document.getElementById("matchday-fixture-count").textContent=selected.length+" GAMES";
-  document.getElementById("matchday-fixtures").innerHTML=selected.length?selected.map(matchHTML).join(""):'<div class="matchday-empty">No fixtures in this matchday.</div>';
+  document.getElementById("matchday-fixtures").innerHTML=selected.length?selected.map(m=>matchHTML({...m,gameweek:activeMatchday})).join(""):'<div class="matchday-empty">No fixtures in this matchday.</div>';
  }
  const upcoming=matches.filter(m=>m.status!=="played").sort(compareMatchWeeks).slice(0,4);
  const recent=matches.filter(m=>m.status==="played").sort((a,b)=>compareMatchWeeks(b,a)).slice(0,4);
