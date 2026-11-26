@@ -832,7 +832,7 @@ function renderPlayoffBracket(){
  const weekTen=(data.matches||[]).filter(m=>{const label=String(m.gameweek||m.date||"");const match=label.match(/(?:game\s*week|gw)\s*#?\s*(\d+)/i)||label.match(/^(\d+)$/);return match&&Number(match[1])===10;});
  const weekTenComplete=weekTen.length>0&&weekTen.every(m=>m.status==="played"&&m.homeScore!==""&&m.awayScore!==""&&m.homeScore!=null&&m.awayScore!=null&&Number.isFinite(+m.homeScore)&&Number.isFinite(+m.awayScore));
  if(!weekTenComplete){
-  el.innerHTML='<section class="playoff-waiting"><div class="playoff-waiting-kicker">REGULAR SEASON · 10 GAMEWEEKS</div><h2>Playoffs haven't started yet</h2><p>The league is still in the regular season. Complete all Gameweek 10 fixtures to confirm the top four clubs in each conference and unlock the playoff bracket.</p><div class="playoff-progress"><span>Current stage</span><strong>Regular Season</strong></div></section>';
+  el.innerHTML='<section class="playoff-waiting"><div class="playoff-waiting-kicker">REGULAR SEASON · 10 GAMEWEEKS</div><h2>Playoffs have not started yet</h2><p>The league is still in the regular season. Complete all Gameweek 10 fixtures to confirm the top four clubs in each conference and unlock the playoff bracket.</p><div class="playoff-progress"><span>Current stage</span><strong>Regular Season</strong></div></section>';
   return;
  }
  const south=sorted("south").slice(0,4),north=sorted("north").slice(0,4);
