@@ -257,6 +257,48 @@ body.mode-desktop footer{min-width:1050px}
 .pom-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.pom-card{background:linear-gradient(135deg,#101827,#24101a);border:1px solid #4a2634;border-radius:14px;padding:20px;color:#f4f6fb;min-width:0}.pom-month{font-size:10px;color:#ff8795;font-weight:950;letter-spacing:.16em;text-transform:uppercase}.pom-winner{display:flex;align-items:center;gap:14px;margin-top:18px}.pom-winner .club-mini{width:54px;height:54px;object-fit:contain;flex:0 0 54px}.pom-label{font-size:9px;color:#ff8795;font-weight:950;letter-spacing:.13em}.pom-winner h2{font-size:23px;line-height:1.1;margin:6px 0;font-weight:950;overflow-wrap:anywhere}.pom-winner p{margin:0;color:#b9c5d5;font-size:11px}.pom-note{border-top:1px solid #344155;padding-top:12px;margin:16px 0 0;color:#d5dce7;font-size:12px;line-height:1.55}
 @media(max-width:650px){.subnav{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding:0 13px 10px}.subnav button{white-space:nowrap}.pom-list{grid-template-columns:1fr}}
 
+/* Live Title Race + automatic Power Rankings */
+.title-race-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}
+.title-race-playoff-note{display:flex;gap:12px;align-items:center;background:#edf5ff;border:1px solid #c8ddf6;border-radius:10px;padding:12px 15px;margin:0 0 14px;color:#174477;font-size:11px}
+.title-race-playoff-note b{font-size:10px;letter-spacing:.1em;white-space:nowrap}
+.title-race-conference{display:grid;gap:14px}
+.title-race-panel{overflow:hidden}
+.title-race-panel .panel-title{padding:15px 17px;margin:0;border-bottom:1px solid var(--line)}
+.title-race-table{padding:0 14px 12px}
+.title-race-table tbody tr{background:#f7f9fc!important;opacity:1}
+.title-race-table tbody tr td,.title-race-table tbody tr td.team-cell,.title-race-table .club-name-button,.title-race-table .pts{color:#263449!important}
+.title-race-table tbody tr.playoff-qualifier td:first-child{font-weight:950;color:#16834e!important}
+.title-race-table tbody tr.playoff-qualifier td:first-child::after{content:" ✓";color:#16834e;font-size:10px;font-weight:950}
+.title-race-stat{background:linear-gradient(135deg,#101c31,#1c3152);color:#fff;border-radius:12px;padding:16px 18px;min-width:0}
+.title-race-stat span{display:block;color:#b8c5d8;font-size:9px;font-weight:850;letter-spacing:.12em;text-transform:uppercase}
+.title-race-stat strong{display:block;font-size:23px;line-height:1.2;margin-top:5px;font-weight:950;overflow-wrap:anywhere}
+.title-race-chart{padding:14px 12px 8px;overflow-x:auto}
+.title-race-chart svg{display:block;width:100%;min-width:520px;height:auto}
+.title-race-legend{display:flex;gap:12px;flex-wrap:wrap;padding:0 16px 16px}
+.title-race-legend span{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;color:#46556a}
+.title-race-legend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.power-rankings-meta{font-size:11px;color:var(--muted);margin:-8px 0 14px}
+.power-rankings-list{display:grid;gap:9px}
+.power-rank-card{display:grid;grid-template-columns:48px 48px minmax(0,1fr) auto;align-items:center;gap:13px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 16px;min-width:0}
+.power-rank-number{font-size:23px;font-weight:950;color:#9aa6b5;text-align:center}
+.power-rank-card:first-child .power-rank-number{color:#d49b22}
+.power-rank-card .club-mini{display:block;width:54px;height:54px;flex:0 0 54px;object-fit:contain;margin:0;padding:5px;background:#f3f6fa;border:1px solid #e2e8f0;border-radius:11px}
+.power-rank-card{grid-template-columns:46px 58px minmax(0,1fr) 62px;background:#fff;box-shadow:0 2px 8px #0f172a0a}
+.power-rank-number{font-size:25px}
+.power-rank-club{min-width:0;text-align:left}
+.power-rank-club b{display:block;font-size:14px;line-height:1.3;font-weight:950;color:#15243a;overflow-wrap:anywhere}
+.power-rank-club small{font-size:10px;color:#627187}
+.power-rank-club small{display:block;color:var(--muted);font-size:9px;margin-top:4px}
+.power-rank-form{display:flex;gap:4px;margin-top:7px}
+.power-rank-form span{width:19px;height:19px;border-radius:5px;display:grid;place-items:center;font-size:9px;font-weight:950}
+.power-rank-form .w{background:#dcfce7;color:#167346}.power-rank-form .d{background:#e8edf4;color:#526174}.power-rank-form .l{background:#fee2e2;color:#b42332}
+.power-rank-score{text-align:right;white-space:nowrap}
+.power-rank-score b{display:block;font-size:17px;font-weight:950}
+.power-rank-score small{display:block;color:var(--muted);font-size:9px;margin-top:3px}
+.power-rank-movement{font-size:10px;font-weight:900}
+.power-rank-movement.up{color:#16834e}.power-rank-movement.down{color:#c24141}.power-rank-movement.same{color:#7b8797}
+@media(max-width:650px){.title-race-summary{gap:7px}.title-race-stat{padding:12px 10px}.title-race-stat strong{font-size:18px}.title-race-stat span{font-size:8px}.power-rank-card{grid-template-columns:32px 46px minmax(0,1fr) 50px;gap:8px;padding:11px 9px}.power-rank-card .club-mini{width:42px;height:42px;flex-basis:42px}.power-rank-club b{font-size:12px}.power-rank-score b{font-size:14px}}
+
 /* Matchday Center */
 .matchday-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}
 .matchday-stat{background:linear-gradient(135deg,#101c31,#1c3152);color:#fff;border-radius:12px;padding:16px 18px;min-width:0}
@@ -310,6 +352,18 @@ body.mode-desktop footer{min-width:1050px}
   <div class="section-head"><div><div class="eyebrow">The competition</div><h2>Meet the clubs</h2></div><button class="secondary" onclick="showPage('clubs')">View all clubs →</button></div>
   <div class="cards" id="home-clubs"></div>
 </section>
+<section id="page-title-race" class="hidden">
+  <div class="page-title"><div class="eyebrow">The road to the top</div><h1>Live Title Race</h1><p>Watch the points race unfold after every completed gameweek.</p></div>
+  <div class="title-race-summary" id="title-race-summary"></div>
+  <div class="title-race-playoff-note"><b>PLAYOFF FORMAT</b><span>Top 4 clubs in each conference qualify for the playoffs. 5th place misses out.</span></div>
+  <div class="title-race-conference"><section class="panel title-race-panel"><div class="panel-title"><h3>Southern Conference</h3><span>TOP 4 QUALIFY</span></div><div id="title-race-south-chart" class="title-race-chart"></div><div id="title-race-south-table" class="table-wrap title-race-table"></div></section>
+  <section class="panel title-race-panel"><div class="panel-title"><h3>Northern Conference</h3><span>TOP 4 QUALIFY</span></div><div id="title-race-north-chart" class="title-race-chart"></div><div id="title-race-north-table" class="table-wrap title-race-table"></div></section></div>
+</section>
+<section id="page-power-rankings" class="hidden">
+  <div class="page-title"><div class="eyebrow">Who's in form?</div><h1>Power Rankings</h1><p>Automatically updated after every result, based on each club's last five completed matches.</p></div>
+  <div class="power-rankings-meta" id="power-rankings-meta"></div>
+  <div id="power-rankings-list" class="power-rankings-list"></div>
+</section>
 <section id="page-standings" class="hidden">
   <div class="page-title"><div class="eyebrow">The table</div><h1>Standings</h1><p>League positions update automatically when you enter match scores.</p></div>
   <div class="conf-tabs"><button class="active" data-conf="south">Southern Conference</button><button data-conf="north">Northern Conference</button></div>
@@ -353,6 +407,10 @@ body.mode-desktop footer{min-width:1050px}
 <section id="page-golden-boot" class="hidden">
   <div class="page-title"><div class="eyebrow">The race for the award</div><h1>Golden Boot Race</h1><p>The league's top goalscorers, ranked automatically from the player statistics.</p></div>
   <div id="golden-boot-table" class="leaderboard-grid"></div>
+</section>
+<section id="page-player-of-week" class="hidden">
+  <div class="page-title"><div class="eyebrow">Weekly recognition</div><h1>Player of the Week</h1><p>Celebrating the standout performer from each gameweek, selected by league staff.</p></div>
+  <div id="player-of-week-list" class="pom-list"><div class="empty">No Player of the Week winners have been announced yet.</div></div>
 </section>
 <section id="page-player-of-month" class="hidden">
   <div class="page-title"><div class="eyebrow">Monthly recognition</div><h1>Player of the Month</h1><p>Celebrating the standout player selected by league staff each month.</p></div>
@@ -399,6 +457,12 @@ body.mode-desktop footer{min-width:1050px}
         <div class="field"><label>Assists</label><input id="p-assists" type="number" min="0" value="0"></div><div class="field"><label>Saves</label><input id="p-saves" type="number" min="0" value="0"></div>
         <div class="field"><label>Tackles</label><input id="p-tackles" type="number" min="0" value="0"></div>
       </div><div class="form-actions"><button class="primary">Save player</button></div>
+    </form></div>
+    <div class="panel form-panel"><h3>Player of the Week</h3><form id="player-of-week-form">
+      <div class="form-grid"><div class="field"><label>Gameweek</label><input id="pow-week" type="text" required maxlength="40" placeholder="e.g. Gameweek 3"></div><div class="field"><label>Winner</label><select id="pow-player" required><option value="">Add players first</option></select></div></div>
+      <div class="field" style="margin-top:12px"><label>Reason / award note (optional)</label><textarea id="pow-note" rows="2" maxlength="240" placeholder="A short note about their performance..."></textarea></div>
+      <div class="form-actions"><button class="primary" type="submit">Publish weekly winner</button><button class="secondary" type="button" id="pow-clear">Clear all winners</button></div>
+      <p class="muted" style="font-size:11px;margin-top:10px">Publishing another winner for the same gameweek replaces that week's award. Previous gameweeks stay in the archive.</p>
     </form></div>
     <div class="panel form-panel"><h3>Player of the Month</h3><form id="player-of-month-form">
       <div class="form-grid"><div class="field"><label>Month</label><input id="pom-month" type="month" required></div><div class="field"><label>Winner</label><select id="pom-player" required><option value="">Add players first</option></select></div></div>
@@ -455,13 +519,13 @@ const clubs=[
 {name:"Orlando City",short:"ORL",conf:"north",color:"#6336a5",logo:"https://assets.football-logos.cc/logos/usa/256x256/orlando-city.9f7d53f6.png"},
 {name:"Inter Miami",short:"MIA",conf:"north",color:"#f08aa8",logo:"https://assets.football-logos.cc/logos/usa/256x256/inter-miami-cf.e2a16c34.png"}
 ];
-const defaults={matches:[],players:[],transfers:[],news:[],totw:[],totwImage:"",totwWeek:"",ratings:[],playerOfMonth:[]};
+const defaults={matches:[],players:[],transfers:[],news:[],totw:[],totwImage:"",totwWeek:"",ratings:[],playerOfMonth:[],playerOfWeek:[]};
 let data=loadData(),activeConf="south",clubConf="all",activeMatchday="";
 const SHARED_TABLE="mls_league_shared_state";
 function isAuthorizedEditor(user){return !!user&&(user.id===AUTHORIZED_ADMIN_UID||user.app_metadata?.role==="mls_staff");}
 function loginEmailFromInput(value){const v=value.trim();if(v.includes("@"))return v;const username=v.toLowerCase();if(!/^[a-z0-9_][a-z0-9_.-]{2,23}$/.test(username))throw new Error("Use a staff username with 3–24 letters, numbers, dots, underscores or hyphens.");return username+"@staff.mls.invalid";}
 function loadData(){try{return {...defaults,...JSON.parse(localStorage.getItem("mlsLeagueData")||"{}")}}catch(e){return structuredClone(defaults)}}
-function hasLeagueContent(value){return !!(value && ((value.matches||[]).length||(value.players||[]).length||(value.transfers||[]).length||(value.news||[]).length||(value.totw||[]).length||!!value.totwImage||(value.ratings||[]).length||(value.playerOfMonth||[]).length));}
+function hasLeagueContent(value){return !!(value && ((value.matches||[]).length||(value.players||[]).length||(value.transfers||[]).length||(value.news||[]).length||(value.totw||[]).length||!!value.totwImage||(value.ratings||[]).length||(value.playerOfMonth||[]).length||(value.playerOfWeek||[]).length));}
 async function save(){
   localStorage.setItem("mlsLeagueData",JSON.stringify(data));
   renderAll();
@@ -520,9 +584,9 @@ function club(name){return clubs.find(c=>c.name===name)||{name:name||"TBC",short
 function crest(name){let c=club(name);return `<img class="club-mini" src="${c.logo||""}" alt="${esc(c.name)} crest" loading="lazy" onerror="this.style.display='none'">`}
 function stats(){return clubs.map(c=>{let s={...c,gp:0,w:0,d:0,l:0,gf:0,ga:0,pts:0};data.matches.filter(m=>m.status==="played"&&m.homeScore!==""&&m.awayScore!==""&&m.homeScore!=null&&m.awayScore!=null).forEach(m=>{let hs=+m.homeScore,as=+m.awayScore;if(m.home===c.name){s.gp++;s.gf+=hs;s.ga+=as;if(hs>as){s.w++;s.pts+=3}else if(hs===as){s.d++;s.pts++}else s.l++}if(m.away===c.name){s.gp++;s.gf+=as;s.ga+=hs;if(as>hs){s.w++;s.pts+=3}else if(as===hs){s.d++;s.pts++}else s.l++}});s.gd=s.gf-s.ga;return s})}
 function sorted(conf){return stats().filter(s=>s.conf===conf).sort((a,b)=>b.pts-a.pts||b.gd-a.gd||b.gf-a.gf||a.name.localeCompare(b.name))}
-function tableHTML(rows){return `<table><thead><tr><th>#</th><th>Club</th><th>GP</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>PTS</th></tr></thead><tbody>${rows.map((s,i)=>`<tr><td>${i+1}</td><td class="team-cell">${crest(s.name)}<button type="button" onclick="openClub('${esc(s.name)}')" class="club-name-button">${esc(s.name)}</button></td><td>${s.gp}</td><td>${s.w}</td><td>${s.d}</td><td>${s.l}</td><td>${s.gf}</td><td>${s.ga}</td><td>${s.gd>0?"+":""}${s.gd}</td><td class="pts">${s.pts}</td></tr>`).join("")}</tbody></table>`}
+function tableHTML(rows,showPlayoffMarkers=false){return `<table><thead><tr><th>#</th><th>Club</th><th>GP</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>PTS</th></tr></thead><tbody>${rows.map((s,i)=>`<tr class="${showPlayoffMarkers&&i<4?"playoff-qualifier":""}"><td>${i+1}</td><td class="team-cell">${crest(s.name)}<button type="button" onclick="openClub('${esc(s.name)}')" class="club-name-button">${esc(s.name)}</button></td><td>${s.gp}</td><td>${s.w}</td><td>${s.d}</td><td>${s.l}</td><td>${s.gf}</td><td>${s.ga}</td><td>${s.gd>0?"+":""}${s.gd}</td><td class="pts">${s.pts}</td></tr>`).join("")}</tbody></table>`}
 function matchHTML(m){let played=m.status==="played";return `<div class="match"><div class="match-team">${crest(m.home)}<b>${esc(m.home)}</b></div><div class="match-score">${played?`${m.homeScore} – ${m.awayScore}`:`<small>VS</small>`}<small>${esc(m.gameweek||m.date||"GAMEWEEK TBC")}</small></div><div class="match-team right"><b>${esc(m.away)}</b>${crest(m.away)}</div></div>`}
-function renderAll(){renderHome();renderStandings();renderMatchdayCenter();renderFixtures();renderPlayers();renderGoldenBoot();renderPlayerOfMonth();renderClubs();renderNewsAndTotw();renderRatings();renderAdminRatings();renderAdminContentLists();fillSelects();fillPomSelect()}
+function renderAll(){renderHome();renderStandings();renderTitleRace();renderPowerRankings();renderMatchdayCenter();renderFixtures();renderPlayers();renderGoldenBoot();renderPlayerOfWeek();renderPlayerOfMonth();renderClubs();renderNewsAndTotw();renderRatings();renderAdminRatings();renderAdminContentLists();fillSelects();fillPowSelect();fillPomSelect()}
 function renderHome(){
 let played=data.matches.filter(m=>m.status==="played").length;
 document.getElementById("overview-stats").innerHTML=[["10","CLUBS"],[played,"MATCHES PLAYED"],[data.players.length,"PLAYERS TRACKED"]].map(x=>`<div class="stat-box"><span>${x[1]}</span><strong>${x[0]}</strong></div>`).join("");
@@ -598,12 +662,83 @@ function renderAdminContentLists(){
   ["transfers","Transfers",t=>t.player,t=>`${t.from||"Free agent"} → ${t.to||"—"}`],
   ["news","League news",n=>n.title,n=>`${n.category||"News"} · ${n.gameweek||n.date||"No gameweek"}`],
   ["totw","Team of the Week",p=>p.name,p=>`${p.club} · ${p.position||""}`],
+  ["playerOfWeek","Player of the Week",p=>p.playerName,p=>`${p.week} · ${p.club||"No club"}`],
   ["ratings","Match ratings",r=>`${r.player} · ${Number(r.score).toFixed(1)}/10`,r=>r.match]
  ];
  root.innerHTML=groups.map(([key,label,title,sub])=>{const arr=data[key]||[];return `<div class="admin-manage-group"><h4>${label} (${arr.length})</h4>${arr.length?arr.map((item,i)=>`<div class="admin-manage-item"><div>${item.image?`<img class="admin-manage-thumb" src="${item.image}" alt="">`:""}<b>${esc(title(item))}</b><small>${esc(sub(item)||"")}</small></div><button type="button" class="danger" data-delete-type="${key}" data-delete-index="${i}">Delete</button></div>`).join(""):'<div class="muted" style="font-size:11px">Nothing added yet.</div>'}</div>`}).join("");
 }
 function posAbbr(pos){return ({GK:"GK",DEF:"DEF",MID:"MID",FWD:"FWD"})[pos]||"XI"}
 function renderStandings(){document.getElementById("standings-heading").textContent=activeConf==="south"?"Southern Conference":"Northern Conference";document.getElementById("standings-table").innerHTML=tableHTML(sorted(activeConf))}
+function completedLeagueMatches(){
+ return (data.matches||[]).map((m,index)=>({...m,_originalIndex:index})).filter(m=>m.status==="played"&&m.homeScore!==""&&m.awayScore!==""&&m.homeScore!=null&&m.awayScore!=null&&Number.isFinite(+m.homeScore)&&Number.isFinite(+m.awayScore));
+}
+function titleRaceData(){
+ const played=completedLeagueMatches();
+ const labels=[...new Set(played.map(m=>normalizeMatchdayLabel(m.gameweek||m.date||"Matchday TBC")))].sort(compareGameweeks);
+ const totals=Object.fromEntries(clubs.map(c=>[c.name,0]));
+ const rows=[];
+ labels.forEach(label=>{
+  played.filter(m=>normalizeMatchdayLabel(m.gameweek||m.date||"Matchday TBC")===label).forEach(m=>{
+   const hs=+m.homeScore,as=+m.awayScore;
+   if(totals[m.home]===undefined||totals[m.away]===undefined)return;
+   if(hs>as)totals[m.home]+=3;else if(hs<as)totals[m.away]+=3;else{totals[m.home]++;totals[m.away]++;}
+  });
+  rows.push({label,totals:{...totals}});
+ });
+ return {played,labels,rows,totals};
+}
+function renderTitleRace(){
+ const {played,labels,rows}=titleRaceData();
+ const standings={south:sorted("south"),north:sorted("north")};
+ const leaders=[standings.south[0],standings.north[0]];
+ document.getElementById("title-race-summary").innerHTML=leaders.map((leader,i)=>'<div class="title-race-stat"><span>'+(i===0?'SOUTHERN':'NORTHERN')+' CONFERENCE LEADER</span><strong>'+(leader?esc(leader.name):'TBC')+' · '+(leader?leader.pts:0)+' PTS</strong></div>').join("");
+ const renderConference=(conf)=>{
+  const ranked=standings[conf],chart=document.getElementById("title-race-"+conf+"-chart");
+  const table=document.getElementById("title-race-"+conf+"-table");
+  if(!labels.length){chart.innerHTML='<div class="empty">The title race will appear once match results are entered.</div>';table.innerHTML='<div class="empty">No completed matches yet.</div>';return;}
+  const top=ranked.slice(0,4),width=760,height=260,left=42,right=18,topPad=18,bottom=42,plotW=width-left-right,plotH=height-topPad-bottom;
+  const values=rows.flatMap(r=>top.map(c=>r.totals[c.name]||0));
+  const maxPts=Math.max(3,...values),maxTick=Math.max(3,Math.ceil(maxPts/3)*3);
+  const colors=top.map(c=>c.color||"#1689ff");
+  const x=i=>left+(labels.length===1?plotW/2:i*plotW/(labels.length-1));
+  const y=v=>topPad+plotH-(v/maxTick)*plotH;
+  let svg='<svg viewBox="0 0 '+width+' '+height+'" role="img" aria-label="'+(conf==="south"?"Southern":"Northern")+' Conference playoff race points by gameweek">';
+  for(let t=0;t<=4;t++){const val=maxTick*t/4,yy=y(val);svg+='<line x1="'+left+'" y1="'+yy+'" x2="'+(width-right)+'" y2="'+yy+'" stroke="#e7edf4" stroke-width="1"/><text x="'+(left-9)+'" y="'+(yy+4)+'" text-anchor="end" fill="#7b8797" font-size="10">'+Math.round(val)+'</text>';}
+  labels.forEach((label,i)=>{if(labels.length<=8||i===0||i===labels.length-1||i%Math.ceil(labels.length/6)===0)svg+='<text x="'+x(i)+'" y="'+(height-13)+'" text-anchor="middle" fill="#7b8797" font-size="10">'+esc(label.replace("Gameweek ","GW "))+'</text>';});
+  top.forEach((c,ci)=>{const vals=rows.map(r=>r.totals[c.name]||0),points=vals.map((v,i)=>x(i)+","+y(v)).join(" ");svg+='<polyline points="'+points+'" fill="none" stroke="'+colors[ci]+'" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>';vals.forEach((v,i)=>{if(i===vals.length-1)svg+='<circle cx="'+x(i)+'" cy="'+y(v)+'" r="4" fill="'+colors[ci]+'"/>';});});
+  svg+='</svg>';
+  chart.innerHTML=svg+'<div class="title-race-legend">'+top.map(c=>'<span><i style="background:'+c.color+'"></i>'+esc(c.name)+'</span>').join("")+'</div>';
+  table.innerHTML=tableHTML(ranked,true);
+ };
+ renderConference("south");renderConference("north");
+}
+function powerRankScores(){
+ const played=completedLeagueMatches().sort((a,b)=>compareMatchWeeks(a,b)||a._originalIndex-b._originalIndex);
+ const build=(offset)=>clubs.map(c=>{
+  const matches=played.filter(m=>m.home===c.name||m.away===c.name);
+  const sample=matches.slice(Math.max(0,matches.length-offset-5),Math.max(0,matches.length-offset));
+  const form=sample.map(m=>{
+   const isHome=m.home===c.name,forGoals=+(isHome?m.homeScore:m.awayScore),against=+(isHome?m.awayScore:m.homeScore);
+   return {result:forGoals>against?"W":forGoals<against?"L":"D",points:forGoals>against?3:forGoals===against?1:0,gd:forGoals-against,gf:forGoals};
+  });
+  const points=form.reduce((n,x)=>n+x.points,0),gd=form.reduce((n,x)=>n+x.gd,0),gf=form.reduce((n,x)=>n+x.gf,0);
+  const score=points+Math.max(-2,Math.min(2,gd*.25));
+  return {...c,form,points,gd,gf,score,gp:form.length};
+ }).sort((a,b)=>b.score-a.score||b.points-a.points||b.gd-a.gd||b.gf-a.gf||a.name.localeCompare(b.name));
+ return {current:build(0),previous:build(5),played};
+}
+function renderPowerRankings(){
+ const {current,previous,played}=powerRankScores();
+ const oldPositions=Object.fromEntries(previous.map((c,i)=>[c.name,i+1]));
+ document.getElementById("power-rankings-meta").textContent=played.length?"Based on the last five completed matches per club · refreshed automatically when scores change":"Rankings will appear after the first match result is entered.";
+ const list=document.getElementById("power-rankings-list");
+ if(!played.length){list.innerHTML='<div class="empty">No completed results yet. Add match scores and the Power Rankings will build automatically.</div>';return;}
+ list.innerHTML=current.map((c,i)=>{
+  const old=oldPositions[c.name],move=old==null?0:old-(i+1),movement=move>0?'<span class="power-rank-movement up">▲ '+move+'</span>':move<0?'<span class="power-rank-movement down">▼ '+Math.abs(move)+'</span>':'<span class="power-rank-movement same">—</span>';
+  return '<article class="power-rank-card"><div class="power-rank-number">#'+(i+1)+'</div>'+crest(c.name)+'<div class="power-rank-club"><b>'+esc(c.name)+'</b><small class="power-rank-conference">'+(c.conf==="south"?"SOUTHERN":"NORTHERN")+' CONFERENCE</small><small>'+c.gp+' recent '+(c.gp===1?'match':'matches')+' · '+c.points+' form points · '+(c.gd>0?"+":"")+c.gd+' GD</small><div class="power-rank-form">'+(c.form.length?c.form.map(x=>'<span class="'+x.result.toLowerCase()+'">'+x.result+'</span>').join(""):'<small>No matches yet</small>')+'</div></div><div class="power-rank-score"><b>'+c.score.toFixed(1)+'</b><small>'+movement+'</small></div></article>';
+ }).join("");
+}
+
 function renderMatchdayCenter(){
  const matches=[...(data.matches||[])];
  const groups=new Map();
@@ -657,6 +792,11 @@ function renderGoldenBoot(){
  document.getElementById("golden-boot-table").innerHTML=`<section class="panel leaderboard-card" style="grid-column:1/-1"><div class="panel-title"><h3>⚽ Top Scorers</h3><span>TOP 20 · GOLDEN BOOT</span></div><div class="leaderboard-list">${rows}</div></section>`;
 }
 
+function renderPlayerOfWeek(){
+ const awards=[...(data.playerOfWeek||[])].sort((a,b)=>String(b.week||"").localeCompare(String(a.week||""),undefined,{numeric:true,sensitivity:"base"}));
+ const html=awards.length?awards.map(award=>{const player=(data.players||[]).find(p=>String(p.name||"").toLowerCase()===String(award.playerName||"").toLowerCase());const name=player?.name||award.playerName||"Unknown player",clubName=player?.club||award.club||"No club",position=player?.position||award.position||"Player";return '<article class="pom-card"><div class="pom-month">'+esc(award.week||"Gameweek")+'</div><div class="pom-winner">'+crest(clubName)+'<div><div class="pom-label">PLAYER OF THE WEEK</div><h2>'+esc(name)+'</h2><p>'+esc(clubName)+' · '+esc(position)+'</p></div></div>'+(award.note?'<p class="pom-note">'+esc(award.note)+'</p>':"")+'</article>';}).join(""):'<div class="empty">No Player of the Week winners have been announced yet.</div>';
+ document.getElementById("player-of-week-list").innerHTML=html;
+}
 function renderPlayerOfMonth(){
  const awards=[...(data.playerOfMonth||[])].sort((a,b)=>String(b.month||"").localeCompare(String(a.month||"")));
  const monthLabel=value=>{if(!value)return "Month not set";const [y,m]=value.split("-").map(Number);return new Date(y,m-1,1).toLocaleDateString(undefined,{month:"long",year:"numeric"});};
@@ -667,9 +807,10 @@ function renderClubs(){let list=clubs.filter(c=>clubConf==="all"||c.conf===clubC
 
 function openClub(name){let c=club(name);if(!c.logo)return;let s=stats().find(x=>x.name===c.name);let players=[...data.players].filter(p=>p.club===c.name).sort((a,b)=>(+b.goals||0)-(+a.goals||0));let matches=[...data.matches].filter(m=>m.home===c.name||m.away===c.name).sort(compareMatchWeeks);let matchRows=matches.length?matches.map(m=>{let home=m.home===c.name,opponent=home?m.away:m.home,score=m.status==="played"?`${home?m.homeScore:m.awayScore} – ${home?m.awayScore:m.homeScore}`:"Upcoming";return `<div class="profile-row"><b>${home?"vs":"at"} ${esc(opponent)}</b><span style="float:right">${score}</span><div class="muted" style="font-size:9px;margin-top:4px">${esc(m.gameweek||m.date||"Gameweek TBC")}</div></div>`}).join(""):'<div class="empty">No fixtures added for this club yet.</div>';let playerRows=players.length?players.map(p=>`<div class="profile-row"><b>${esc(p.name)}</b><div class="muted" style="font-size:9px;margin-top:4px">${esc(p.position||"Player")}</div></div>`).join(""):'<div class="empty">No players added for this club yet. Add them in Admin.</div>';document.getElementById("club-profile-content").innerHTML=`<div class="profile-hero"><img class="crest" src="${c.logo}" alt="${esc(c.name)} crest"><div><h1>${esc(c.name)}</h1><p>${c.conf==="south"?"Southern":"Northern"} Conference · ${esc(c.short)}</p></div></div><div class="profile-stat-grid">${[[s.gp,"Played"],[s.w,"Wins"],[s.d,"Draws"],[s.l,"Losses"],[s.pts,"Points"]].map(x=>`<div class="profile-stat"><span>${x[1]}</span><strong>${x[0]}</strong></div>`).join("")}</div><div class="profile-grid"><div class="profile-panel"><h3>Squad & player stats</h3><div class="profile-panel-body">${playerRows}</div></div><div class="profile-panel"><h3>Fixtures & results</h3><div class="profile-panel-body">${matchRows}</div></div><div class="profile-panel"><h3>Club record</h3><div class="profile-panel-body"><div class="profile-row">Goals scored <b style="float:right">${s.gf}</b></div><div class="profile-row">Goals conceded <b style="float:right">${s.ga}</b></div><div class="profile-row">Goal difference <b style="float:right">${s.gd>0?"+":""}${s.gd}</b></div><div class="profile-row">League position <b style="float:right">${sorted(c.conf).findIndex(x=>x.name===c.name)+1}</b></div></div></div></div>`;showPage("club-profile")}
 function fillSelects(){let opts=clubs.map(c=>`<option value="${c.name}">${c.name}</option>`).join("");["home-team","away-team","p-club","rating-club"].forEach(id=>{let el=document.getElementById(id),v=el.value;el.innerHTML=opts;if(v)el.value=v});["t-from","t-to"].forEach(id=>{let el=document.getElementById(id),v=el.value;el.innerHTML='<option value="">Free agent / N/A</option>'+opts;if(v)el.value=v})}
+function fillPowSelect(){const el=document.getElementById("pow-player");if(!el)return;const v=el.value;el.innerHTML='<option value="">Select a player</option>'+(data.players||[]).map(p=>'<option value="'+esc(p.name)+'">'+esc(p.name)+' · '+esc(p.club||"No club")+'</option>').join("");if(v)el.value=v;}
 function fillPomSelect(){const el=document.getElementById("pom-player");if(!el)return;const v=el.value;el.innerHTML='<option value="">Select a player</option>'+(data.players||[]).map(p=>'<option value="'+esc(p.name)+'">'+esc(p.name)+' · '+esc(p.club||"No club")+'</option>').join("");if(v)el.value=v}
-const pageGroups={home:"home",matchday:"league",standings:"league",fixtures:"league",players:"players","golden-boot":"players","player-of-month":"players",news:"media",totw:"media",ratings:"media",clubs:"clubs","club-profile":"clubs",admin:"admin"};
-const groupPages={league:[["matchday","Matchday Center"],["standings","Standings"],["fixtures","Fixtures & Results"]],players:[["players","Leaderboards"],["golden-boot","Golden Boot"],["player-of-month","Player of the Month"]],media:[["news","League News"],["totw","Team of the Week"],["ratings","Match Ratings"]]};
+const pageGroups={home:"home",matchday:"league",standings:"league","title-race":"league","power-rankings":"league",fixtures:"league",players:"players","golden-boot":"players","player-of-week":"players","player-of-month":"players",news:"media",totw:"players",ratings:"media",clubs:"clubs","club-profile":"clubs",admin:"admin"};
+const groupPages={league:[["matchday","Matchday Center"],["standings","Standings"],["title-race","Live Title Race"],["power-rankings","Power Rankings"],["fixtures","Fixtures & Results"]],players:[["players","Leaderboards"],["golden-boot","Golden Boot"],["player-of-week","Player of the Week"],["player-of-month","Player of the Month"],["totw","Team of the Week"]],media:[["news","League News"],["ratings","Match Ratings"]]};
 function showGroup(group){const first={home:"home",league:"matchday",players:"players",media:"news",clubs:"clubs",admin:"admin"}[group]||"home";showPage(first)}
 function showPage(p){if(p==="admin"&&!currentAdmin){document.getElementById("admin-login").style.display="block";document.getElementById("admin-tools").classList.remove("unlocked")}document.querySelectorAll("main>section").forEach(s=>s.classList.add("hidden"));document.getElementById("page-"+p).classList.remove("hidden");const group=pageGroups[p]||"home";document.querySelectorAll("#nav [data-group]").forEach(b=>b.classList.toggle("active",b.dataset.group===group));const sub=document.getElementById("subnav"),pages=groupPages[group]||[];sub.innerHTML=pages.map(x=>'<button type="button" data-page="'+x[0]+'" class="'+(x[0]===p?"active":"")+'">'+x[1]+'</button>').join("");sub.classList.toggle("hidden",!pages.length);window.scrollTo({top:0,behavior:"smooth"})}
 function updateAdminView(){const ok=isAuthorizedEditor(currentAdmin);document.getElementById("admin-login").style.display=ok?"none":"block";document.getElementById("admin-tools").classList.toggle("unlocked",ok);const manager=document.getElementById("owner-staff-manager");if(manager)manager.style.display=currentAdmin?.id===AUTHORIZED_ADMIN_UID?"block":"none";}
@@ -690,6 +831,8 @@ document.getElementById("match-form").addEventListener("submit",e=>{e.preventDef
 document.getElementById("player-form").addEventListener("submit",e=>{e.preventDefault();data.players.push({name:document.getElementById("p-name").value,club:document.getElementById("p-club").value,position:document.getElementById("p-position").value,goals:document.getElementById("p-goals").value,assists:document.getElementById("p-assists").value,saves:document.getElementById("p-saves").value,tackles:document.getElementById("p-tackles").value});e.target.reset();save();alert("Player saved.")});
 
 
+document.getElementById("player-of-week-form").addEventListener("submit",e=>{e.preventDefault();const week=document.getElementById("pow-week").value.trim(),playerName=document.getElementById("pow-player").value,player=(data.players||[]).find(p=>p.name===playerName);if(!week||!player){alert("Choose a gameweek and a player.");return;}data.playerOfWeek=data.playerOfWeek||[];const award={week,playerName:player.name,club:player.club,position:player.position,note:document.getElementById("pow-note").value.trim()};const index=data.playerOfWeek.findIndex(x=>String(x.week||"").trim().toLowerCase()===week.toLowerCase());if(index>=0)data.playerOfWeek[index]=award;else data.playerOfWeek.push(award);document.getElementById("pow-note").value="";save();alert("Player of the Week winner published.");});
+document.getElementById("pow-clear").addEventListener("click",()=>{if(!confirm("Remove every Player of the Week award?"))return;data.playerOfWeek=[];save();});
 document.getElementById("player-of-month-form").addEventListener("submit",e=>{e.preventDefault();const month=document.getElementById("pom-month").value,playerName=document.getElementById("pom-player").value,player=(data.players||[]).find(p=>p.name===playerName);if(!month||!player){alert("Choose a month and a player.");return;}data.playerOfMonth=data.playerOfMonth||[];const award={month,playerName:player.name,club:player.club,position:player.position,note:document.getElementById("pom-note").value.trim()};const index=data.playerOfMonth.findIndex(x=>x.month===month);if(index>=0)data.playerOfMonth[index]=award;else data.playerOfMonth.push(award);document.getElementById("pom-note").value="";save();alert("Player of the Month winner published.");});
 document.getElementById("pom-clear").addEventListener("click",()=>{if(!confirm("Remove every Player of the Month award?"))return;data.playerOfMonth=[];save();});
 document.getElementById("transfer-form").addEventListener("submit",e=>{
