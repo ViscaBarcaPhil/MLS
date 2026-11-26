@@ -253,6 +253,15 @@ body.mode-desktop footer{min-width:1050px}
 .subnav{display:flex;justify-content:center;gap:8px;padding:0 16px 12px;background:rgba(5,8,16,.94);flex-wrap:wrap}
 .subnav button{border:1px solid #344155;background:#0c1421;color:#aebbd0;border-radius:7px;padding:7px 12px;font-size:10px;font-weight:850;letter-spacing:.04em;text-transform:uppercase;cursor:pointer}
 .subnav button.active,.subnav button:hover{background:#a9142d;border-color:#a9142d;color:#fff}
+.subnav{align-items:center;gap:10px;padding:9px 16px 12px}
+.subnav label{color:#dbe4ef;font-size:10px;font-weight:900;letter-spacing:.08em}
+.subnav select{min-width:210px;max-width:min(80vw,340px);padding:9px 34px 9px 12px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;color:#111827;font-size:12px;font-weight:800}
+.subnav select option{color:#111827;background:#fff}
+#page-rivalry-tracker,#page-hall-of-fame,#page-matchday-predictions{color:#111827!important}
+#page-rivalry-tracker *:not(button),#page-hall-of-fame *:not(button),#page-matchday-predictions *:not(button){color:#111827!important}
+#page-rivalry-tracker input,#page-rivalry-tracker select,#page-hall-of-fame input,#page-hall-of-fame select,#page-matchday-predictions input,#page-matchday-predictions select{color:#111827!important;background-color:#fff}
+#page-matchday-predictions input::placeholder{color:#475569!important}
+
 #nav{gap:8px}#nav button{padding:10px 13px;border:1px solid transparent;border-radius:8px}#nav button.active{background:#a9142d;border-color:#a9142d}
 .pom-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.pom-card{background:linear-gradient(135deg,#101827,#24101a);border:1px solid #4a2634;border-radius:14px;padding:20px;color:#f4f6fb;min-width:0}.pom-month{font-size:10px;color:#ff8795;font-weight:950;letter-spacing:.16em;text-transform:uppercase}.pom-winner{display:flex;align-items:center;gap:14px;margin-top:18px}.pom-winner .club-mini{width:54px;height:54px;object-fit:contain;flex:0 0 54px}.pom-label{font-size:9px;color:#ff8795;font-weight:950;letter-spacing:.13em}.pom-winner h2{font-size:23px;line-height:1.1;margin:6px 0;font-weight:950;overflow-wrap:anywhere}.pom-winner p{margin:0;color:#b9c5d5;font-size:11px}.pom-note{border-top:1px solid #344155;padding-top:12px;margin:16px 0 0;color:#d5dce7;font-size:12px;line-height:1.55}
 @media(max-width:650px){.subnav{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding:0 13px 10px}.subnav button{white-space:nowrap}.pom-list{grid-template-columns:1fr}}
@@ -324,6 +333,118 @@ body.mode-desktop footer{min-width:1050px}
 
 .playoff-waiting{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;color:#111827!important}.playoff-waiting *{color:#111827!important}.playoff-waiting-kicker{font-size:10px;font-weight:900;letter-spacing:.12em;color:#334155!important}.playoff-waiting h2{font-size:22px;margin:10px 0 8px;color:#111827!important}.playoff-waiting p{max-width:650px;color:#334155!important;font-size:13px;line-height:1.6}.playoff-progress{display:inline-flex;flex-direction:column;gap:4px;margin-top:12px;padding:12px 16px;background:#f1f5f9;border-radius:10px}.playoff-progress span{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#334155!important;font-weight:900}.playoff-progress strong{font-size:14px;color:#111827!important}
 #playoff-bracket-content .playoff-conference,#playoff-bracket-content .playoff-match,#playoff-bracket-content .playoff-final{background:#fff!important;color:#111827!important;border:1px solid var(--line)}#playoff-bracket-content .playoff-conference h2,#playoff-bracket-content .playoff-match small,#playoff-bracket-content .playoff-team,#playoff-bracket-content .playoff-placeholder,#playoff-bracket-content .playoff-final small,#playoff-bracket-content .playoff-final strong{color:#111827!important}#playoff-bracket-content .playoff-placeholder{opacity:1!important}
+
+/* New league community pages */
+.community-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px;box-shadow:0 4px 14px #10213a08}
+.community-card h3{margin:0 0 8px;font-size:15px;color:#101827}
+.community-card p,.community-card small{color:#64748b}
+.community-card strong{color:#101827}
+.rivalry-score{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0;font-size:12px;font-weight:800}
+.rivalry-team{display:flex;align-items:center;gap:7px;min-width:0}
+.rivalry-team:last-child{flex-direction:row-reverse;text-align:right}
+.rivalry-team b{overflow-wrap:anywhere}
+.rivalry-mid{white-space:nowrap;color:#334155;background:#f1f5f9;padding:7px 10px;border-radius:8px}
+.hof-section{margin:18px 0}
+.hof-section h2{font-size:18px;margin:0 0 12px;color:#101827}
+.hof-award{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:10px;margin:8px 0}
+.hof-award b{color:#101827}
+.hof-award small{display:block;color:#64748b;margin-top:3px}
+.prediction-rank{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.prediction-rank:last-child{border-bottom:0}
+.prediction-rank .rank-no{width:26px;height:26px;border-radius:8px;background:#eef2f7;color:#101827;display:grid;place-items:center;font-weight:900;font-size:12px}
+.prediction-rank .rank-info{flex:1;min-width:0}
+.prediction-rank .rank-info b{display:block;color:#101827}
+.prediction-rank .rank-info small{color:#64748b}
+.prediction-rank .rank-points{font-weight:900;color:#101827;white-space:nowrap}
+#page-matchday-predictions .field input,#page-matchday-predictions .field select{width:100%}
+@media(max-width:680px){.rivalry-score{font-size:10px;gap:5px}.rivalry-team{gap:4px}.rivalry-team b{max-width:95px}}
+
+/* High-contrast surfaces: these pages use white cards with dark readable text. */
+#page-rivalry-tracker .community-card,
+#page-hall-of-fame .community-card,
+#page-hall-of-fame .record-card,
+#page-hall-of-fame .hof-award,
+#page-matchday-predictions .panel,
+#page-matchday-predictions .panel-title,
+#page-matchday-predictions .prediction-rank,
+#page-matchday-predictions .empty,
+#page-rivalry-tracker .empty,
+#page-hall-of-fame .empty{
+  background:#fff!important;
+  color:#111827!important;
+  border-color:#d7dee8!important;
+}
+#page-rivalry-tracker .community-card *,
+#page-hall-of-fame .community-card *,
+#page-hall-of-fame .record-card *,
+#page-hall-of-fame .hof-award *,
+#page-matchday-predictions .panel *,
+#page-matchday-predictions .empty *,
+#page-rivalry-tracker .empty *,
+#page-hall-of-fame .empty *{
+  color:#111827!important;
+}
+#page-matchday-predictions .panel-title{border-bottom:1px solid #e5eaf1!important}
+#page-matchday-predictions .field label{color:#111827!important}
+#page-matchday-predictions .field input,
+#page-matchday-predictions .field select{
+  background:#fff!important;color:#111827!important;border:1px solid #b8c3d1!important;
+}
+#page-matchday-predictions .field input::placeholder{color:#64748b!important}
+#page-matchday-predictions .muted,
+#page-matchday-predictions .auth-message{color:#334155!important}
+#page-rivalry-tracker .page-title *,
+#page-hall-of-fame .page-title *,
+#page-matchday-predictions .page-title *{color:#111827!important}
+
+
+
+/* FINAL CONTRAST OVERRIDE — keep all three community pages readable on the dark site theme. */
+#page-rivalry-tracker,
+#page-hall-of-fame,
+#page-matchday-predictions{
+  background:#ffffff!important;
+  color:#111827!important;
+  border:1px solid #d7dee8!important;
+  border-radius:16px!important;
+  padding:24px!important;
+}
+#page-rivalry-tracker h1,#page-rivalry-tracker h2,#page-rivalry-tracker h3,
+#page-rivalry-tracker p,#page-rivalry-tracker span,#page-rivalry-tracker small,
+#page-rivalry-tracker b,#page-rivalry-tracker strong,#page-rivalry-tracker label,
+#page-rivalry-tracker .eyebrow,#page-rivalry-tracker .muted,
+#page-hall-of-fame h1,#page-hall-of-fame h2,#page-hall-of-fame h3,
+#page-hall-of-fame p,#page-hall-of-fame span,#page-hall-of-fame small,
+#page-hall-of-fame b,#page-hall-of-fame strong,#page-hall-of-fame label,
+#page-hall-of-fame .eyebrow,#page-hall-of-fame .muted,
+#page-matchday-predictions h1,#page-matchday-predictions h2,#page-matchday-predictions h3,
+#page-matchday-predictions p,#page-matchday-predictions span,#page-matchday-predictions small,
+#page-matchday-predictions b,#page-matchday-predictions strong,#page-matchday-predictions label,
+#page-matchday-predictions .eyebrow,#page-matchday-predictions .muted{
+  color:#111827!important;
+}
+#page-rivalry-tracker .community-card,
+#page-hall-of-fame .record-card,
+#page-hall-of-fame .hof-award,
+#page-matchday-predictions .panel{
+  background:#ffffff!important;
+  color:#111827!important;
+  border-color:#d7dee8!important;
+  box-shadow:0 2px 10px rgba(15,23,42,.08)!important;
+}
+#page-matchday-predictions .field input,
+#page-matchday-predictions .field select{
+  background:#ffffff!important;
+  color:#111827!important;
+  border:1px solid #94a3b8!important;
+}
+#page-matchday-predictions .primary,
+#page-matchday-predictions button.primary{color:#ffffff!important}
+#page-rivalry-tracker .rivalry-mid{background:#e2e8f0!important;color:#111827!important}
+@media(max-width:680px){
+  #page-rivalry-tracker,#page-hall-of-fame,#page-matchday-predictions{padding:16px!important}
+}
+
 </style>
 </head>
 <body>
@@ -432,6 +553,39 @@ body.mode-desktop footer{min-width:1050px}
 <section id="page-league-records" class="hidden"><div class="page-title"><div class="eyebrow">Made in league history</div><h1>League Records</h1><p>Records update automatically as match results and player stats are entered.</p></div><div id="league-records-grid" class="records-grid"></div></section>
 <section id="page-club-of-month" class="hidden"><div class="page-title"><div class="eyebrow">Monthly club recognition</div><h1>Club of the Month</h1><p>Recognising the club selected for its performances each month.</p></div><div id="club-of-month-list" class="pom-list"></div></section>
 <section id="page-matchday-of-week" class="hidden"><div class="page-title"><div class="eyebrow">The fixture to watch</div><h1>Matchday of the Week</h1><p>The featured fixture selected by league staff.</p></div><div id="matchday-of-week-content"></div></section>
+
+<section id="page-rivalry-tracker" class="hidden">
+  <div class="page-title"><div class="eyebrow">Head-to-head history</div><h1>Rivalry Tracker</h1><p>Every rivalry updates automatically when league match results are added.</p></div>
+  <div id="rivalry-tracker-list" class="records-grid"></div>
+</section>
+<section id="page-hall-of-fame" class="hidden">
+  <div class="page-title"><div class="eyebrow">The names and moments that matter</div><h1>Hall of Fame</h1><p>Season honours and record holders, generated from the league's recorded results and awards.</p></div>
+  <div id="hall-of-fame-content"></div>
+</section>
+<section id="page-matchday-predictions" class="hidden">
+  <div class="page-title"><div class="eyebrow">Call the score</div><h1>Matchday Predictions</h1><p>Predict upcoming fixtures, earn points and climb the leaderboard.</p></div>
+  <div class="grid">
+    <div class="panel form-panel">
+      <div class="panel-title"><h3>Make a prediction</h3><span>3 PTS EXACT · 1 PT RESULT</span></div>
+      <form id="prediction-form">
+        <div class="field"><label for="prediction-name">Your display name</label><input id="prediction-name" maxlength="24" required placeholder="Enter your name"></div>
+        <div class="field"><label for="prediction-match">Upcoming fixture</label><select id="prediction-match" required><option value="">No upcoming fixtures</option></select></div>
+        <div class="form-grid">
+          <div class="field"><label for="prediction-home-score">Home score</label><input id="prediction-home-score" type="number" min="0" max="99" step="1" required></div>
+          <div class="field"><label for="prediction-away-score">Away score</label><input id="prediction-away-score" type="number" min="0" max="99" step="1" required></div>
+        </div>
+        <div class="form-action"><button class="primary" type="submit" id="prediction-submit">Submit prediction</button></div>
+        <div id="prediction-message" class="auth-message" role="status"></div>
+      </form>
+      <p class="muted" style="font-size:11px;line-height:1.5">One prediction per display name per match. Display names are not verified accounts, so use the same name each time.</p>
+    </div>
+    <div class="panel">
+      <div class="panel-title"><h3>Prediction leaderboard</h3><span id="prediction-count">0 PREDICTIONS</span></div>
+      <div id="prediction-leaderboard" class="match-list"><div class="empty">Loading predictions…</div></div>
+    </div>
+  </div>
+  <div class="panel" style="margin-top:16px"><div class="panel-title"><h3>Fixtures open for predictions</h3><span>UPCOMING</span></div><div id="prediction-fixtures" class="match-list"></div></div>
+</section>
 <section id="page-clubs" class="hidden">
   <div class="page-title"><div class="eyebrow">Ten clubs. Two conferences.</div><h1>Club directory</h1><p>Explore every club competing in MLS League.</p></div>
   <div class="conf-tabs"><button class="active" data-club-conf="all">All clubs</button><button data-club-conf="south">Southern</button><button data-club-conf="north">Northern</button></div>
@@ -607,7 +761,7 @@ function stats(){return clubs.map(c=>{let s={...c,gp:0,w:0,d:0,l:0,gf:0,ga:0,pts
 function sorted(conf){return stats().filter(s=>s.conf===conf).sort((a,b)=>b.pts-a.pts||b.gd-a.gd||b.gf-a.gf||a.name.localeCompare(b.name))}
 function tableHTML(rows,showPlayoffMarkers=false){return `<table><thead><tr><th>#</th><th>Club</th><th>GP</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>PTS</th></tr></thead><tbody>${rows.map((s,i)=>`<tr class="${showPlayoffMarkers&&i<4?"playoff-qualifier":""}"><td>${i+1}</td><td class="team-cell">${crest(s.name)}<button type="button" onclick="openClub('${esc(s.name)}')" class="club-name-button">${esc(s.name)}</button></td><td>${s.gp}</td><td>${s.w}</td><td>${s.d}</td><td>${s.l}</td><td>${s.gf}</td><td>${s.ga}</td><td>${s.gd>0?"+":""}${s.gd}</td><td class="pts">${s.pts}</td></tr>`).join("")}</tbody></table>`}
 function matchHTML(m){let played=m.status==="played";return `<div class="match"><div class="match-team">${crest(m.home)}<b>${esc(m.home)}</b></div><div class="match-score">${played?`${m.homeScore} – ${m.awayScore}`:`<small>VS</small>`}<small>${esc(m.gameweek||m.date||"GAMEWEEK TBC")}</small></div><div class="match-team right"><b>${esc(m.away)}</b>${crest(m.away)}</div></div>`}
-function renderAll(){renderHome();renderStandings();renderTitleRace();renderPowerRankings();renderMatchdayCenter();renderFixtures();renderPlayers();renderGoldenBoot();renderPlayerOfWeek();renderPlayerOfMonth();renderSeasonCalendar();renderPlayoffBracket();renderLeagueRecords();renderClubOfMonth();renderMatchdayOfWeek();renderClubs();renderNewsAndTotw();renderRatings();renderAdminRatings();renderAdminContentLists();fillSelects();fillPowSelect();fillPomSelect();fillClubAdminSelects();fillFeaturedMatchSelect()}
+function renderAll(){renderHome();renderStandings();renderTitleRace();renderPowerRankings();renderMatchdayCenter();renderFixtures();renderPlayers();renderGoldenBoot();renderPlayerOfWeek();renderPlayerOfMonth();renderSeasonCalendar();renderPlayoffBracket();renderLeagueRecords();renderRivalryTracker();renderHallOfFame();renderPredictions();renderClubOfMonth();renderMatchdayOfWeek();renderClubs();renderNewsAndTotw();renderRatings();renderAdminRatings();renderAdminContentLists();fillSelects();fillPowSelect();fillPomSelect();fillClubAdminSelects();fillFeaturedMatchSelect()}
 function renderHome(){
 let played=data.matches.filter(m=>m.status==="played").length;
 document.getElementById("overview-stats").innerHTML=[["10","CLUBS"],[played,"MATCHES PLAYED"],[data.players.length,"PLAYERS TRACKED"]].map(x=>`<div class="stat-box"><span>${x[1]}</span><strong>${x[0]}</strong></div>`).join("");
@@ -840,6 +994,65 @@ function renderPlayoffBracket(){
  el.innerHTML=conference("Southern",south)+conference("Northern",north)+'<div class="playoff-final"><small>MLS LEAGUE CHAMPIONSHIP</small><strong>Southern champion vs Northern champion</strong><div class="playoff-team playoff-placeholder" style="justify-content:center">Finalists will be confirmed after both conference finals</div></div>';
 }
 function renderLeagueRecords(){const el=document.getElementById("league-records-grid");if(!el)return;const played=completedLeagueMatches();const biggest=[...played].sort((a,b)=>Math.abs((+b.homeScore)-(+b.awayScore))-Math.abs((+a.homeScore)-(+a.awayScore)))[0];const highest=[...played].sort((a,b)=>(+b.homeScore)+(+b.awayScore)-((+a.homeScore)+(+a.awayScore)))[0];const wins=[...stats()].sort((a,b)=>b.w-a.w||b.pts-a.pts)[0];const scorer=[...(data.players||[])].sort((a,b)=>(+b.goals||0)-(+a.goals||0))[0];const records=[["Most league wins",wins?.name||"TBC",wins?wins.w+" wins":"No results yet"],["Biggest victory",biggest?biggest.homeScore+"–"+biggest.awayScore+" · "+Math.abs(+biggest.homeScore- +biggest.awayScore)+" goal margin":"TBC",biggest?biggest.home+" vs "+biggest.away:"No results yet"],["Highest-scoring match",highest?(+highest.homeScore + +highest.awayScore)+" goals":"TBC",highest?highest.home+" "+highest.homeScore+"–"+highest.awayScore+" "+highest.away:"No results yet"],["Top goalscorer",scorer?.name||"TBC",scorer?(+scorer.goals||0)+" goals · "+(scorer.club||"No club"):"No player stats yet"]];el.innerHTML=records.map(r=>'<article class="record-card"><span>'+r[0]+'</span><strong>'+esc(String(r[1]))+'</strong><small>'+esc(String(r[2]))+'</small></article>').join("");}
+
+function renderRivalryTracker(){
+ const el=document.getElementById("rivalry-tracker-list");if(!el)return;
+ const pairs=new Map();
+ completedLeagueMatches().forEach(m=>{
+  const home=String(m.home||""),away=String(m.away||"");if(!home||!away||home===away)return;
+  const key=[home,away].sort((a,b)=>a.localeCompare(b)).join("||");
+  if(!pairs.has(key))pairs.set(key,{a:[home,away].sort((a,b)=>a.localeCompare(b))[0],b:[home,away].sort((a,b)=>a.localeCompare(b))[1],played:0,aWins:0,bWins:0,draws:0,goalsA:0,goalsB:0});
+  const r=pairs.get(key),hs=+m.homeScore,as=+m.awayScore,homeIsA=home===r.a;
+  r.played++;r.goalsA+=homeIsA?hs:as;r.goalsB+=homeIsA?as:hs;
+  if(hs===as)r.draws++;else if((hs>as)===homeIsA)r.aWins++;else r.bWins++;
+ });
+ const list=[...pairs.values()].sort((a,b)=>b.played-a.played||Math.max(b.aWins,b.bWins)-Math.max(a.aWins,a.bWins)||a.a.localeCompare(b.a));
+ el.innerHTML=list.length?list.map(r=>'<article class="community-card"><div class="eyebrow">'+r.played+' MEETINGS</div><div class="rivalry-score"><div class="rivalry-team">'+crest(r.a)+'<b>'+esc(r.a)+'</b></div><div class="rivalry-mid">'+r.aWins+' – '+r.draws+' – '+r.bWins+'</div><div class="rivalry-team">'+crest(r.b)+'<b>'+esc(r.b)+'</b></div></div><small>'+esc(r.a)+' goals: '+r.goalsA+' · '+esc(r.b)+' goals: '+r.goalsB+'</small></article>').join(""):'<div class="empty">Rivalries will appear after the first completed league matches.</div>';
+}
+function renderHallOfFame(){
+ const el=document.getElementById("hall-of-fame-content");if(!el)return;
+ const played=completedLeagueMatches(),clubStats=stats(),scorers=[...(data.players||[])].filter(p=>(+p.goals||0)>0).sort((a,b)=>(+b.goals||0)-(+a.goals||0));
+ const bestClub=[...clubStats].sort((a,b)=>b.w-a.w||b.pts-a.pts||b.gd-a.gd)[0],bestScorer=scorers[0];
+ const biggest=[...played].sort((a,b)=>Math.abs(+b.homeScore- +b.awayScore)-Math.abs(+a.homeScore- +a.awayScore))[0];
+ const awards=[
+  ...(data.playerOfWeek||[]).map(x=>({title:"Player of the Week",winner:x.playerName,detail:x.week||"Season award"})),
+  ...(data.playerOfMonth||[]).map(x=>({title:"Player of the Month",winner:x.playerName,detail:x.month||"Season award"})),
+  ...(data.clubOfMonth||[]).map(x=>({title:"Club of the Month",winner:x.club,detail:x.month||"Season award"}))
+ ].sort((a,b)=>String(b.detail).localeCompare(String(a.detail),undefined,{numeric:true}));
+ const records=[
+  {title:"Most wins",winner:bestClub?.name||"TBC",detail:bestClub?bestClub.w+" wins":"No completed matches yet"},
+  {title:"Top goalscorer",winner:bestScorer?.name||"TBC",detail:bestScorer?(+bestScorer.goals||0)+" goals · "+(bestScorer.club||"No club"):"No player goals recorded"},
+  {title:"Biggest win",winner:biggest?biggest.home+" "+biggest.homeScore+"–"+biggest.awayScore+" "+biggest.away:"TBC",detail:biggest?"Largest goal margin: "+Math.abs(+biggest.homeScore- +biggest.awayScore):"No completed matches yet"}
+ ];
+ el.innerHTML='<div class="hof-section"><h2>Season records</h2><div class="records-grid">'+records.map(r=>'<article class="record-card"><span>'+esc(r.title)+'</span><strong>'+esc(r.winner)+'</strong><small>'+esc(r.detail)+'</small></article>').join("")+'</div></div><div class="hof-section"><h2>Awards cabinet</h2>'+(awards.length?awards.map(a=>'<div class="hof-award"><div><b>'+esc(a.winner||"TBC")+'</b><small>'+esc(a.title)+'</small></div><span>'+esc(a.detail)+'</span></div>').join(""):'<div class="empty">Award winners will appear here when Player of the Week, Player of the Month or Club of the Month awards are published.</div>')+'</div><p class="muted" style="font-size:11px">This Hall of Fame is generated from the league data currently recorded on the website. A league champion will be added once the playoffs have been completed and the final result is recorded.</p>';
+}
+const PREDICTIONS_TABLE="mls_matchday_predictions";
+let matchdayPredictions=[];
+function predictionMatchKey(m){return [String(m.gameweek||m.date||"TBC").trim().toLowerCase(),String(m.home||"").trim().toLowerCase(),String(m.away||"").trim().toLowerCase()].join("::");}
+function predictionPoints(prediction){
+ const match=completedLeagueMatches().find(m=>predictionMatchKey(m)===prediction.match_key);if(!match)return null;
+ const exact=+prediction.home_score===+match.homeScore&&+prediction.away_score===+match.awayScore;
+ if(exact)return 3;
+ const predicted=Math.sign(+prediction.home_score- +prediction.away_score),actual=Math.sign(+match.homeScore- +match.awayScore);
+ return predicted===actual?1:0;
+}
+function renderPredictions(){
+ const select=document.getElementById("prediction-match"),list=document.getElementById("prediction-fixtures"),board=document.getElementById("prediction-leaderboard");if(!select||!list||!board)return;
+ const upcoming=(data.matches||[]).map((m,i)=>({...m,_index:i})).filter(m=>m.status!=="played"&&m.home&&m.away);
+ const old=select.value;select.innerHTML='<option value="">Choose a fixture</option>'+upcoming.map(m=>'<option value="'+m._index+'">'+esc(m.home+" vs "+m.away+" · "+(m.gameweek||m.date||"Matchday TBC"))+'</option>').join("");if(old&&upcoming.some(m=>String(m._index)===old))select.value=old;
+ list.innerHTML=upcoming.length?upcoming.map(m=>matchHTML(m)).join(""):'<div class="empty">There are no upcoming fixtures open for predictions.</div>';
+ const totals=new Map();
+ matchdayPredictions.forEach(p=>{const key=String(p.display_name||"").trim().toLowerCase();if(!key)return;if(!totals.has(key))totals.set(key,{name:p.display_name,points:0,exact:0,submitted:0});const t=totals.get(key),points=predictionPoints(p);t.submitted++;if(points!==null){t.points+=points;if(points===3)t.exact++;}});
+ const ranked=[...totals.values()].sort((a,b)=>b.points-a.points||b.exact-a.exact||a.name.localeCompare(b.name));
+ document.getElementById("prediction-count").textContent=matchdayPredictions.length+" PREDICTIONS";
+ board.innerHTML=ranked.length?ranked.map((p,i)=>'<div class="prediction-rank"><span class="rank-no">'+(i+1)+'</span><div class="rank-info"><b>'+esc(p.name)+'</b><small>'+p.submitted+' submitted · '+p.exact+' exact</small></div><span class="rank-points">'+p.points+' pts</span></div>').join(""):'<div class="empty">No predictions yet. Be the first to make one!</div>';
+}
+async function loadMatchdayPredictions(){
+ const {data:rows,error}=await supabaseClient.from(PREDICTIONS_TABLE).select("match_key,display_name,home_score,away_score,created_at");
+ if(error){console.error("Could not load matchday predictions:",error);const board=document.getElementById("prediction-leaderboard");if(board)board.innerHTML='<div class="empty">Predictions could not load right now. Please refresh the page.</div>';return;}
+ matchdayPredictions=rows||[];renderPredictions();
+}
+
 function renderClubOfMonth(){const el=document.getElementById("club-of-month-list");if(!el)return;const list=[...(data.clubOfMonth||[])].sort((a,b)=>String(b.month||"").localeCompare(String(a.month||"")));const label=v=>{if(!v)return "Month not set";const [y,m]=v.split("-").map(Number);return new Date(y,m-1,1).toLocaleDateString(undefined,{month:"long",year:"numeric"});};el.innerHTML=list.length?list.map(item=>'<article class="pom-card"><div class="pom-month">'+esc(label(item.month))+'</div><div class="pom-winner">'+crest(item.club)+'<div><div class="pom-label">CLUB OF THE MONTH</div><h2>'+esc(item.club)+'</h2><p>'+(club(item.club)?.conf==="south"?"Southern":"Northern")+' Conference</p></div></div>'+(item.note?'<p class="pom-note">'+esc(item.note)+'</p>':"")+'</article>').join(""):'<div class="empty">No Club of the Month winners have been announced yet.</div>';}
 function fillFeaturedMatchSelect(){const el=document.getElementById("featured-match-select");if(!el)return;const old=el.value;el.innerHTML='<option value="">Select a fixture</option>'+(data.matches||[]).map((m,i)=>'<option value="'+i+'">'+esc(m.home+" vs "+m.away+" · "+(m.gameweek||m.date||"Matchday TBC"))+'</option>').join("");if(old)el.value=old;}
 function renderMatchdayOfWeek(){const el=document.getElementById("matchday-of-week-content");if(!el)return;const f=data.featuredMatchday;if(!f){el.innerHTML='<div class="calendar-empty">No featured match has been selected yet. League staff can choose one in Admin.</div>';return;}const m=(data.matches||[]).find(x=>x.home===f.home&&x.away===f.away&&(x.gameweek||x.date||"")===f.gameweek);if(!m){el.innerHTML='<div class="calendar-empty">The featured fixture is no longer in the match schedule. Choose another in Admin.</div>';return;}el.innerHTML='<article class="featured-matchday"><div class="eyebrow">MATCHDAY SPOTLIGHT</div><h2>'+esc(m.gameweek||m.date||"Featured fixture")+'</h2>'+matchHTML(m)+(f.note?'<p>'+esc(f.note)+'</p>':"")+'</article>';}
@@ -851,10 +1064,10 @@ function openClub(name){let c=club(name);if(!c.logo)return;let s=stats().find(x=
 function fillSelects(){let opts=clubs.map(c=>`<option value="${c.name}">${c.name}</option>`).join("");["home-team","away-team","p-club","rating-club","manager-club","com-club"].forEach(id=>{let el=document.getElementById(id);if(!el)return;let v=el.value;el.innerHTML=opts;if(v)el.value=v});["t-from","t-to"].forEach(id=>{let el=document.getElementById(id),v=el.value;el.innerHTML='<option value="">Free agent / N/A</option>'+opts;if(v)el.value=v})}
 function fillPowSelect(){const el=document.getElementById("pow-player");if(!el)return;const v=el.value;el.innerHTML='<option value="">Select a player</option>'+(data.players||[]).map(p=>'<option value="'+esc(p.name)+'">'+esc(p.name)+' · '+esc(p.club||"No club")+'</option>').join("");if(v)el.value=v;}
 function fillPomSelect(){const el=document.getElementById("pom-player");if(!el)return;const v=el.value;el.innerHTML='<option value="">Select a player</option>'+(data.players||[]).map(p=>'<option value="'+esc(p.name)+'">'+esc(p.name)+' · '+esc(p.club||"No club")+'</option>').join("");if(v)el.value=v}
-const pageGroups={home:"home",matchday:"league",standings:"league","title-race":"league","power-rankings":"league",fixtures:"league","season-calendar":"league","playoff-bracket":"league","league-records":"league","club-of-month":"league","matchday-of-week":"league",players:"players","golden-boot":"players","player-of-week":"players","player-of-month":"players",news:"media",totw:"players",ratings:"media",clubs:"clubs","club-profile":"clubs",admin:"admin"};
-const groupPages={league:[["matchday","Matchday Center"],["standings","Standings"],["title-race","Live Title Race"],["power-rankings","Power Rankings"],["fixtures","Fixtures & Results"],["season-calendar","Season Calendar"],["playoff-bracket","Playoff Bracket"],["league-records","League Records"],["club-of-month","Club of the Month"],["matchday-of-week","Matchday of the Week"]],players:[["players","Leaderboards"],["golden-boot","Golden Boot"],["player-of-week","Player of the Week"],["player-of-month","Player of the Month"],["totw","Team of the Week"]],media:[["news","League News"],["ratings","Match Ratings"]]};
+const pageGroups={home:"home",matchday:"league",standings:"league","title-race":"league","power-rankings":"league",fixtures:"league","season-calendar":"league","playoff-bracket":"league","league-records":"league","club-of-month":"league","matchday-of-week":"league","rivalry-tracker":"league","hall-of-fame":"league","matchday-predictions":"league",players:"players","golden-boot":"players","player-of-week":"players","player-of-month":"players",news:"media",totw:"players",ratings:"media",clubs:"clubs","club-profile":"clubs",admin:"admin"};
+const groupPages={league:[["matchday","Matchday Center"],["standings","Standings"],["title-race","Live Title Race"],["power-rankings","Power Rankings"],["fixtures","Fixtures & Results"],["season-calendar","Season Calendar"],["playoff-bracket","Playoff Bracket"],["league-records","League Records"],["club-of-month","Club of the Month"],["matchday-of-week","Matchday of the Week"],["rivalry-tracker","Rivalry Tracker"],["hall-of-fame","Hall of Fame"],["matchday-predictions","Predictions"]],players:[["players","Leaderboards"],["golden-boot","Golden Boot"],["player-of-week","Player of the Week"],["player-of-month","Player of the Month"],["totw","Team of the Week"]],media:[["news","League News"],["ratings","Match Ratings"]]};
 function showGroup(group){const first={home:"home",league:"matchday",players:"players",media:"news",clubs:"clubs",admin:"admin"}[group]||"home";showPage(first)}
-function showPage(p){if(p==="admin"&&!currentAdmin){document.getElementById("admin-login").style.display="block";document.getElementById("admin-tools").classList.remove("unlocked")}document.querySelectorAll("main>section").forEach(s=>s.classList.add("hidden"));document.getElementById("page-"+p).classList.remove("hidden");const group=pageGroups[p]||"home";document.querySelectorAll("#nav [data-group]").forEach(b=>b.classList.toggle("active",b.dataset.group===group));const sub=document.getElementById("subnav"),pages=groupPages[group]||[];sub.innerHTML=pages.map(x=>'<button type="button" data-page="'+x[0]+'" class="'+(x[0]===p?"active":"")+'">'+x[1]+'</button>').join("");sub.classList.toggle("hidden",!pages.length);window.scrollTo({top:0,behavior:"smooth"})}
+function showPage(p){if(p==="admin"&&!currentAdmin){document.getElementById("admin-login").style.display="block";document.getElementById("admin-tools").classList.remove("unlocked")}document.querySelectorAll("main>section").forEach(s=>s.classList.add("hidden"));document.getElementById("page-"+p).classList.remove("hidden");const group=pageGroups[p]||"home";document.querySelectorAll("#nav [data-group]").forEach(b=>b.classList.toggle("active",b.dataset.group===group));const sub=document.getElementById("subnav"),pages=groupPages[group]||[];sub.innerHTML=pages.length?'<label for="page-picker">GO TO</label><select id="page-picker" aria-label="Choose a page">'+pages.map(x=>'<option value="'+x[0]+'"'+(x[0]===p?" selected":"")+'">'+x[1]+'</option>').join("")+'</select>':"";sub.classList.toggle("hidden",!pages.length);window.scrollTo({top:0,behavior:"smooth"})}
 function updateAdminView(){const ok=isAuthorizedEditor(currentAdmin);document.getElementById("admin-login").style.display=ok?"none":"block";document.getElementById("admin-tools").classList.toggle("unlocked",ok);const manager=document.getElementById("owner-staff-manager");if(manager)manager.style.display=currentAdmin?.id===AUTHORIZED_ADMIN_UID?"block":"none";}
 document.getElementById("admin-login-form").addEventListener("submit",async e=>{e.preventDefault();const msg=document.getElementById("auth-message");msg.textContent="Signing in…";let email;try{email=loginEmailFromInput(document.getElementById("admin-email").value);}catch(err){msg.textContent=err.message;return;}const {data:result,error}=await supabaseClient.auth.signInWithPassword({email,password:document.getElementById("admin-password").value});if(error){msg.textContent="Login failed. Check your username/email and password.";return;}if(!isAuthorizedEditor(result.user)){await supabaseClient.auth.signOut();msg.textContent="This account is not authorized to access the admin panel.";currentAdmin=null;updateAdminView();return;}currentAdmin=result.user;msg.textContent="";updateAdminView();});
 document.getElementById("staff-create-form").addEventListener("submit",async e=>{e.preventDefault();if(currentAdmin?.id!==AUTHORIZED_ADMIN_UID){document.getElementById("staff-create-message").textContent="Only the owner can create staff accounts.";return;}const msg=document.getElementById("staff-create-message"),btn=document.getElementById("staff-create-button"),username=document.getElementById("staff-new-username").value.trim().toLowerCase(),password=document.getElementById("staff-new-password").value;msg.textContent="Creating account…";btn.disabled=true;try{const {data,error}=await supabaseClient.functions.invoke("mls-create-staff",{body:{username,password}});if(error)throw error;if(data?.error)throw new Error(data.error);msg.textContent="Staff account created: "+(data?.username||username)+". Give the username and password to that staff member.";e.target.reset();}catch(err){msg.textContent=err?.message||"Could not create staff account. Check the Edge Function and try again.";}finally{btn.disabled=false;}});
@@ -866,11 +1079,22 @@ document.getElementById("club-of-month-form").addEventListener("submit",e=>{e.pr
 document.getElementById("featured-match-form").addEventListener("submit",e=>{e.preventDefault();const m=data.matches[Number(document.getElementById("featured-match-select").value)];if(!m){alert("Choose a fixture first.");return;}data.featuredMatchday={home:m.home,away:m.away,gameweek:m.gameweek||m.date||"",note:document.getElementById("featured-match-note").value.trim()};save();alert("Matchday of the Week updated.");});
 document.getElementById("clear-featured-match").addEventListener("click",()=>{data.featuredMatchday=null;document.getElementById("featured-match-note").value="";save();alert("Featured match cleared.");});
 
+
+document.getElementById("prediction-form").addEventListener("submit",async e=>{
+ e.preventDefault();const msg=document.getElementById("prediction-message"),btn=document.getElementById("prediction-submit"),name=document.getElementById("prediction-name").value.trim(),index=Number(document.getElementById("prediction-match").value),match=(data.matches||[])[index],homeScore=document.getElementById("prediction-home-score").value,awayScore=document.getElementById("prediction-away-score").value;
+ if(!name||name.length>24||!match||match.status==="played"||homeScore===""||awayScore===""){msg.textContent="Enter your name, choose an upcoming match and add both scores.";return;}
+ btn.disabled=true;msg.textContent="Submitting prediction…";
+ const {error}=await supabaseClient.from(PREDICTIONS_TABLE).insert({match_key:predictionMatchKey(match),display_name:name,home_score:Number(homeScore),away_score:Number(awayScore)});
+ if(error){msg.textContent=error.code==="23505"?"You've already submitted a prediction for this fixture using that name.":"Could not submit prediction. Please try again.";console.error("Prediction submission failed:",error);}
+ else{msg.textContent="Prediction submitted! Good luck.";document.getElementById("prediction-home-score").value="";document.getElementById("prediction-away-score").value="";await loadMatchdayPredictions();}
+ btn.disabled=false;
+});
+
 document.getElementById("admin-logout").addEventListener("click",async()=>{await supabaseClient.auth.signOut();currentAdmin=null;updateAdminView();showPage("home")});
 
 supabaseClient.auth.onAuthStateChange((_event,session)=>{const user=session?.user;currentAdmin=isAuthorizedEditor(user)?user:null;updateAdminView();});
 document.querySelectorAll("#nav [data-group]").forEach(b=>b.addEventListener("click",()=>showGroup(b.dataset.group)));
-document.getElementById("subnav").addEventListener("click",e=>{const b=e.target.closest("[data-page]");if(b)showPage(b.dataset.page)});
+document.getElementById("subnav").addEventListener("change",e=>{if(e.target.id==="page-picker"&&e.target.value)showPage(e.target.value)});
 document.querySelectorAll("[data-conf]").forEach(b=>b.addEventListener("click",()=>{activeConf=b.dataset.conf;document.querySelectorAll("[data-conf]").forEach(x=>x.classList.toggle("active",x===b));renderStandings()}));
 document.querySelectorAll("[data-club-conf]").forEach(b=>b.addEventListener("click",()=>{clubConf=b.dataset.clubConf;document.querySelectorAll("[data-club-conf]").forEach(x=>x.classList.toggle("active",x===b));renderClubs()}));
 document.getElementById("fixture-filter").addEventListener("change",renderFixtures);
@@ -915,6 +1139,8 @@ document.getElementById("clear-totw-btn").addEventListener("click",()=>{if(confi
 document.getElementById("export-btn").addEventListener("click",()=>{let blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="mls-league-backup.json";a.click();URL.revokeObjectURL(a.href)});
 document.getElementById("reset-btn").addEventListener("click",()=>{if(confirm("Delete all matches, players, transfers, news, Team of the Week and match ratings saved in this browser?")){data=structuredClone(defaults);save();alert("League data reset.")}});
 initSharedLeagueData();
+loadMatchdayPredictions();
+supabaseClient.channel("mls-matchday-predictions-live").on("postgres_changes",{event:"*",schema:"public",table:PREDICTIONS_TABLE},()=>loadMatchdayPredictions()).subscribe();
 
 // Remember the visitor's preferred layout on this device.
 (function setupViewMode(){
