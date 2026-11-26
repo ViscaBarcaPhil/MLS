@@ -359,6 +359,45 @@ body.mode-desktop footer{min-width:1050px}
 #page-matchday-predictions .field input,#page-matchday-predictions .field select{width:100%}
 @media(max-width:680px){.rivalry-score{font-size:10px;gap:5px}.rivalry-team{gap:4px}.rivalry-team b{max-width:95px}}
 
+/* High-contrast surfaces: these pages use white cards with dark readable text. */
+#page-rivalry-tracker .community-card,
+#page-hall-of-fame .community-card,
+#page-hall-of-fame .record-card,
+#page-hall-of-fame .hof-award,
+#page-matchday-predictions .panel,
+#page-matchday-predictions .panel-title,
+#page-matchday-predictions .prediction-rank,
+#page-matchday-predictions .empty,
+#page-rivalry-tracker .empty,
+#page-hall-of-fame .empty{
+  background:#fff!important;
+  color:#111827!important;
+  border-color:#d7dee8!important;
+}
+#page-rivalry-tracker .community-card *,
+#page-hall-of-fame .community-card *,
+#page-hall-of-fame .record-card *,
+#page-hall-of-fame .hof-award *,
+#page-matchday-predictions .panel *,
+#page-matchday-predictions .empty *,
+#page-rivalry-tracker .empty *,
+#page-hall-of-fame .empty *{
+  color:#111827!important;
+}
+#page-matchday-predictions .panel-title{border-bottom:1px solid #e5eaf1!important}
+#page-matchday-predictions .field label{color:#111827!important}
+#page-matchday-predictions .field input,
+#page-matchday-predictions .field select{
+  background:#fff!important;color:#111827!important;border:1px solid #b8c3d1!important;
+}
+#page-matchday-predictions .field input::placeholder{color:#64748b!important}
+#page-matchday-predictions .muted,
+#page-matchday-predictions .auth-message{color:#334155!important}
+#page-rivalry-tracker .page-title *,
+#page-hall-of-fame .page-title *,
+#page-matchday-predictions .page-title *{color:#111827!important}
+
+
 </style>
 </head>
 <body>
