@@ -608,6 +608,7 @@ function renderAdminContentLists(){
   ["transfers","Transfers",t=>t.player,t=>`${t.from||"Free agent"} → ${t.to||"—"}`],
   ["news","League news",n=>n.title,n=>`${n.category||"News"} · ${n.gameweek||n.date||"No gameweek"}`],
   ["totw","Team of the Week",p=>p.name,p=>`${p.club} · ${p.position||""}`],
+  ["playerOfWeek","Player of the Week",p=>p.playerName,p=>`${p.week} · ${p.club||"No club"}`],
   ["ratings","Match ratings",r=>`${r.player} · ${Number(r.score).toFixed(1)}/10`,r=>r.match]
  ];
  root.innerHTML=groups.map(([key,label,title,sub])=>{const arr=data[key]||[];return `<div class="admin-manage-group"><h4>${label} (${arr.length})</h4>${arr.length?arr.map((item,i)=>`<div class="admin-manage-item"><div>${item.image?`<img class="admin-manage-thumb" src="${item.image}" alt="">`:""}<b>${esc(title(item))}</b><small>${esc(sub(item)||"")}</small></div><button type="button" class="danger" data-delete-type="${key}" data-delete-index="${i}">Delete</button></div>`).join(""):'<div class="muted" style="font-size:11px">Nothing added yet.</div>'}</div>`}).join("");
