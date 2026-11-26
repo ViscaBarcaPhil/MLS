@@ -552,6 +552,48 @@ body.mode-desktop footer{min-width:1050px}
   font-weight:950 !important;
 }
 
+
+/* Player profiles and match previews */
+.player-profile-link{border:0;background:transparent;padding:0;color:#17243a;font:inherit;font-weight:900;text-align:left;cursor:pointer}
+.player-profile-link:hover{color:#1769aa;text-decoration:underline}
+.player-profile-directory{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.player-profile-tile{display:flex;align-items:center;gap:11px;text-align:left;padding:12px;background:#fff;border:1px solid #d7dee8;border-radius:11px;color:#111827;cursor:pointer;min-width:0}
+.player-profile-tile .club-mini{width:38px;height:38px;object-fit:contain}
+.player-profile-tile span{flex:1;min-width:0}.player-profile-tile b,.player-profile-tile small{display:block;overflow-wrap:anywhere}
+.player-profile-tile b{font-size:12px;color:#111827}.player-profile-tile small{font-size:10px;color:#64748b;margin-top:3px}.player-profile-tile strong{font-size:10px;color:#2563eb;white-space:nowrap}
+.profile-back{border:0;background:transparent;color:#1d4ed8;font-weight:850;padding:0 0 12px;cursor:pointer}
+.player-profile-card,.profile-detail-grid>.panel,.match-preview-card{background:#fff;border:1px solid #d7dee8;border-radius:13px;color:#111827;overflow:hidden}
+.player-profile-heading{display:flex;align-items:center;gap:15px;padding:19px}
+.player-profile-heading .club-mini{width:62px;height:62px;object-fit:contain;padding:5px;background:#f1f5f9;border-radius:12px}
+.profile-kicker{font-size:9px;font-weight:900;letter-spacing:.12em;color:#64748b}
+.player-profile-heading h2{margin:4px 0;color:#111827;font-size:23px}.player-profile-heading p{margin:0;color:#475569;font-size:12px}
+.player-profile-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #e2e8f0}
+.player-profile-stats>div{padding:14px;text-align:center;border-right:1px solid #e2e8f0}.player-profile-stats>div:last-child{border:0}
+.player-profile-stats span,.match-preview-details>div>span{display:block;font-size:9px;font-weight:900;letter-spacing:.08em;color:#64748b}
+.player-profile-stats strong{display:block;font-size:23px;color:#111827;margin-top:4px}
+.profile-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:14px}
+.profile-detail-grid .panel-title{padding:14px 16px;border-bottom:1px solid #e2e8f0}.profile-detail-grid .panel-title h3{color:#111827}
+.profile-list{padding:4px 15px}.profile-list>div{padding:10px 0;border-bottom:1px solid #e2e8f0}.profile-list>div:last-child{border:0}
+.profile-list b{display:block;color:#111827;font-size:11px}.profile-list small{display:block;color:#64748b;font-size:10px;margin-top:3px}.profile-list .empty{color:#64748b;background:#fff}
+.match-previews-list{display:grid;gap:13px}
+.match-preview-meta{display:flex;justify-content:space-between;gap:10px;padding:12px 16px;background:#f8fafc;border-bottom:1px solid #e2e8f0;color:#475569;font-size:9px;font-weight:900;letter-spacing:.08em}
+.match-preview-teams{display:grid;grid-template-columns:minmax(0,1fr) 50px minmax(0,1fr);align-items:center;padding:18px;gap:10px}
+.match-preview-team{display:grid;grid-template-columns:42px minmax(0,1fr);align-items:center;gap:9px;min-width:0}
+.match-preview-team .club-mini{width:42px;height:42px;object-fit:contain;grid-row:span 2}
+.match-preview-team b{font-size:13px;color:#111827;overflow-wrap:anywhere}.match-preview-team small{font-size:9px;color:#64748b}
+.match-preview-team.away{text-align:right;grid-template-columns:minmax(0,1fr) 42px}.match-preview-team.away .club-mini{grid-column:2;grid-row:1/3}.match-preview-team.away b,.match-preview-team.away small{grid-column:1}
+.match-preview-vs{text-align:center;color:#94a3b8;font-weight:950;font-size:11px}
+.match-preview-details{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:12px;padding:14px 16px;border-top:1px solid #e2e8f0}
+.preview-form{display:flex;gap:4px;margin-top:7px;flex-wrap:wrap}
+.preview-form-chip{width:21px;height:21px;border-radius:5px;display:grid;place-items:center;font-size:9px;font-weight:950}
+.preview-form-chip.w{background:#dcfce7;color:#167346}.preview-form-chip.d{background:#e8edf4;color:#526174}.preview-form-chip.l{background:#fee2e2;color:#b42332}
+.preview-muted,.preview-h2h small{font-size:10px;color:#64748b}.preview-h2h b{display:block;font-size:11px;color:#111827;margin-top:7px}
+#page-player-profiles,#page-match-previews{background:#fff;color:#111827;border:1px solid #d7dee8;border-radius:16px;padding:22px}
+#page-player-profiles .page-title *,#page-match-previews .page-title *{color:#111827!important}
+#page-player-profiles .toolbar input{background:#fff;color:#111827;border:1px solid #94a3b8}
+#page-player-profiles .toolbar input::placeholder{color:#64748b}
+@media(max-width:680px){.player-profile-directory,.profile-detail-grid{grid-template-columns:1fr}.player-profile-stats>div{padding:10px 5px}.player-profile-stats strong{font-size:19px}.match-preview-details{grid-template-columns:1fr 1fr}.preview-h2h{grid-column:1/-1}.match-preview-teams{padding:14px 10px;gap:5px}.match-preview-team{grid-template-columns:32px minmax(0,1fr);gap:5px}.match-preview-team .club-mini{width:32px;height:32px}.match-preview-team.away{grid-template-columns:minmax(0,1fr) 32px}.match-preview-team b{font-size:11px}#page-player-profiles,#page-match-previews{padding:14px}}
+
 </style>
 </head>
 <body>
@@ -642,6 +684,7 @@ body.mode-desktop footer{min-width:1050px}
     </div>
   </div>
 </section>
+<section id="page-match-previews" class="hidden"><div class="page-title"><div class="eyebrow">Know the matchup</div><h1>Match Previews</h1><p>Form, standings and head-to-head history for every upcoming fixture.</p></div><div id="match-previews-list" class="match-previews-list"></div></section>
 <section id="page-fixtures" class="hidden">
   <div class="page-title"><div class="eyebrow">Match centre</div><h1>Fixtures & Results</h1><p>See upcoming games and completed match scores.</p></div>
   <div class="toolbar"><select id="fixture-filter"><option value="all">All matches</option><option value="upcoming">Upcoming</option><option value="played">Completed</option></select></div>
@@ -652,6 +695,7 @@ body.mode-desktop footer{min-width:1050px}
   <div class="toolbar"><input id="player-search" placeholder="Search player or club..."></div>
   <div id="player-table" class="leaderboard-grid"></div>
 </section>
+<section id="page-player-profiles" class="hidden"><div class="page-title"><div class="eyebrow">The players behind the league</div><h1>Player Profiles</h1><p>Explore player stats, awards and match ratings.</p></div><div class="toolbar"><input id="profile-search" placeholder="Search player or club..."></div><div id="player-profile-content"></div></section>
 <section id="page-golden-boot" class="hidden">
   <div class="page-title"><div class="eyebrow">The race for the award</div><h1>Golden Boot Race</h1><p>The league's top goalscorers, ranked automatically from the player statistics.</p></div>
   <div id="golden-boot-table" class="leaderboard-grid"></div>
@@ -878,7 +922,7 @@ function stats(){return clubs.map(c=>{let s={...c,gp:0,w:0,d:0,l:0,gf:0,ga:0,pts
 function sorted(conf){return stats().filter(s=>s.conf===conf).sort((a,b)=>b.pts-a.pts||b.gd-a.gd||b.gf-a.gf||a.name.localeCompare(b.name))}
 function tableHTML(rows,showPlayoffMarkers=false){return `<table><thead><tr><th>#</th><th>Club</th><th>GP</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>PTS</th></tr></thead><tbody>${rows.map((s,i)=>`<tr class="${showPlayoffMarkers&&i<4?"playoff-qualifier":""}"><td>${i+1}</td><td class="team-cell">${crest(s.name)}<button type="button" onclick="openClub('${esc(s.name)}')" class="club-name-button">${esc(s.name)}</button></td><td>${s.gp}</td><td>${s.w}</td><td>${s.d}</td><td>${s.l}</td><td>${s.gf}</td><td>${s.ga}</td><td>${s.gd>0?"+":""}${s.gd}</td><td class="pts">${s.pts}</td></tr>`).join("")}</tbody></table>`}
 function matchHTML(m){let played=m.status==="played";return `<div class="match"><div class="match-team">${crest(m.home)}<b>${esc(m.home)}</b></div><div class="match-score">${played?`${m.homeScore} – ${m.awayScore}`:`<small>VS</small>`}<small>${esc(m.gameweek||m.date||"GAMEWEEK TBC")}</small></div><div class="match-team right"><b>${esc(m.away)}</b>${crest(m.away)}</div></div>`}
-function renderAll(){renderHome();renderStandings();renderTitleRace();renderPowerRankings();renderClubForm();renderMatchdayCenter();renderFixtures();renderPlayers();renderGoldenBoot();renderPlayerOfWeek();renderPlayerOfMonth();renderSeasonCalendar();renderPlayoffBracket();renderLeagueRecords();renderRivalryTracker();renderHallOfFame();renderPredictions();renderClubOfMonth();renderMatchdayOfWeek();renderClubs();renderNewsAndTotw();renderRatings();renderAdminRatings();renderAdminContentLists();fillSelects();fillPowSelect();fillPomSelect();fillClubAdminSelects();fillFeaturedMatchSelect()}
+function renderAll(){renderHome();renderStandings();renderTitleRace();renderPowerRankings();renderClubForm();renderMatchdayCenter();renderMatchPreviews();renderFixtures();renderPlayers();renderPlayerProfiles();renderGoldenBoot();renderPlayerOfWeek();renderPlayerOfMonth();renderSeasonCalendar();renderPlayoffBracket();renderLeagueRecords();renderRivalryTracker();renderHallOfFame();renderPredictions();renderClubOfMonth();renderMatchdayOfWeek();renderClubs();renderNewsAndTotw();renderRatings();renderAdminRatings();renderAdminContentLists();fillSelects();fillPowSelect();fillPomSelect();fillClubAdminSelects();fillFeaturedMatchSelect()}
 function renderHome(){
 let played=data.matches.filter(m=>m.status==="played").length;
 document.getElementById("overview-stats").innerHTML=[["10","CLUBS"],[played,"MATCHES PLAYED"],[data.players.length,"PLAYERS TRACKED"]].map(x=>`<div class="stat-box"><span>${x[1]}</span><strong>${x[0]}</strong></div>`).join("");
@@ -1135,10 +1179,46 @@ function renderPlayers(){
  ];
  document.getElementById("player-table").innerHTML=categories.map(category=>{
   const ranked=[...players].sort((a,b)=>(Number(b[category.key])||0)-(Number(a[category.key])||0)||String(a.name||"").localeCompare(String(b.name||""))).slice(0,10);
-  const rows=ranked.length?ranked.map((player,index)=>`<div class="leaderboard-row"><span class="leaderboard-rank">${index+1}</span><div class="leaderboard-player">${crest(player.club)}<div><b>${esc(player.name||"Unnamed player")}</b><small>${esc(player.club||"No club")}</small></div></div><strong class="leaderboard-value">${Number(player[category.key])||0}<small>${category.unit}</small></strong></div>`).join(""):'<div class="empty">No player stats added yet.</div>';
+  const rows=ranked.length?ranked.map((player,index)=>`<div class="leaderboard-row"><span class="leaderboard-rank">${index+1}</span><div class="leaderboard-player">${crest(player.club)}<div><b><button type="button" class="player-profile-link" data-profile-name="${esc(player.name||"Unnamed player")}">${esc(player.name||"Unnamed player")}</button></b><small>${esc(player.club||"No club")}</small></div></div><strong class="leaderboard-value">${Number(player[category.key])||0}<small>${category.unit}</small></strong></div>`).join(""):'<div class="empty">No player stats added yet.</div>';
   return `<section class="panel leaderboard-card"><div class="panel-title"><h3>${category.icon} ${category.title}</h3><span>TOP 10</span></div><div class="leaderboard-list">${rows}</div></section>`;
  }).join("");
 }
+
+let selectedProfileName="";
+function openPlayerProfile(name){selectedProfileName=String(name||"");showPage("player-profiles");renderPlayerProfiles();}
+function renderPlayerProfiles(){
+ const root=document.getElementById("player-profile-content");if(!root)return;
+ const q=(document.getElementById("profile-search")?.value||"").trim().toLowerCase();
+ const players=[...(data.players||[])].filter(p=>(String(p.name||"")+" "+String(p.club||"")+" "+String(p.position||"")).toLowerCase().includes(q));
+ const selected=selectedProfileName?players.find(p=>String(p.name||"").toLowerCase()===selectedProfileName.toLowerCase()):null;
+ if(selected){
+  const name=String(selected.name||"Unnamed player"),clubName=selected.club||"No club";
+  const awards=[...(data.playerOfWeek||[]).filter(a=>String(a.playerName||"").toLowerCase()===name.toLowerCase()).map(a=>({title:"Player of the Week",period:a.week||"Gameweek"})),...(data.playerOfMonth||[]).filter(a=>String(a.playerName||"").toLowerCase()===name.toLowerCase()).map(a=>({title:"Player of the Month",period:a.month||"Month"}))];
+  const ratings=[...(data.ratings||[])].filter(r=>String(r.player||"").toLowerCase()===name.toLowerCase()).sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));
+  root.innerHTML='<button type="button" class="profile-back" data-profile-back>← All players</button><article class="player-profile-card"><div class="player-profile-heading">'+crest(clubName)+'<div><span class="profile-kicker">PLAYER PROFILE</span><h2>'+esc(name)+'</h2><p>'+esc(clubName)+' · '+esc(selected.position||"Player")+'</p></div></div><div class="player-profile-stats">'+[["GOALS",selected.goals],["ASSISTS",selected.assists],["SAVES",selected.saves],["TACKLES",selected.tackles]].map(x=>'<div><span>'+x[0]+'</span><strong>'+(Number(x[1])||0)+'</strong></div>').join("")+'</div></article><div class="profile-detail-grid"><section class="panel"><div class="panel-title"><h3>Honours & Awards</h3><span>'+awards.length+' AWARDS</span></div><div class="profile-list">'+(awards.length?awards.map(a=>'<div><b>'+esc(a.title)+'</b><small>'+esc(a.period)+'</small></div>').join(""):'<p class="empty">No individual awards recorded yet.</p>')+'</div></section><section class="panel"><div class="panel-title"><h3>Match Ratings</h3><span>'+ratings.length+' RATINGS</span></div><div class="profile-list">'+(ratings.length?ratings.slice(0,8).map(r=>'<div><b>'+esc(r.match||"Match")+' · '+Number(r.score||0).toFixed(1)+'/10</b><small>'+esc(r.note||r.club||"")+'</small></div>').join(""):'<p class="empty">No match ratings published for this player yet.</p>')+'</div></section></div>';
+  return;
+ }
+ if(!players.length){root.innerHTML='<div class="empty">No players match that search.</div>';return;}
+ root.innerHTML='<div class="player-profile-directory">'+players.sort((a,b)=>String(a.name||"").localeCompare(String(b.name||""))).map(p=>'<button type="button" class="player-profile-tile" data-profile-open="'+esc(p.name||"")+'">'+crest(p.club)+'<span><b>'+esc(p.name||"Unnamed player")+'</b><small>'+esc(p.club||"No club")+' · '+esc(p.position||"Player")+'</small></span><strong>View →</strong></button>').join("")+'</div>';
+}
+function clubRecentForm(clubName){
+ return completedLeagueMatches().filter(m=>m.home===clubName||m.away===clubName).sort((a,b)=>compareMatchWeeks(a,b)||a._originalIndex-b._originalIndex).slice(-5).map(m=>{const home=m.home===clubName,forGoals=+(home?m.homeScore:m.awayScore),against=+(home?m.awayScore:m.homeScore);return {result:forGoals>against?"W":forGoals<against?"L":"D",opponent:home?m.away:m.home,score:forGoals+"-"+against,week:normalizeMatchdayLabel(m.gameweek||m.date||"")};});
+}
+function renderMatchPreviews(){
+ const root=document.getElementById("match-previews-list");if(!root)return;
+ const upcoming=(data.matches||[]).filter(m=>m.status!=="played").sort((a,b)=>compareMatchWeeks(a,b));
+ if(!upcoming.length){root.innerHTML='<div class="empty">No upcoming fixtures are scheduled. Add fixtures in the Admin panel and previews will appear here.</div>';return;}
+ const table=stats(),played=completedLeagueMatches();
+ root.innerHTML=upcoming.map(m=>{
+  const home=table.find(c=>c.name===m.home),away=table.find(c=>c.name===m.away);
+  const h2h=played.filter(x=>(x.home===m.home&&x.away===m.away)||(x.home===m.away&&x.away===m.home));
+  const formHTML=name=>{const form=clubRecentForm(name);return form.length?form.map(x=>'<span class="preview-form-chip '+x.result.toLowerCase()+'" title="'+esc(x.week+' vs '+x.opponent+' · '+x.score)+'">'+x.result+'</span>').join(""):'<small class="preview-muted">No results yet</small>';};
+  const record=h2h.reduce((acc,x)=>{const hs=+x.homeScore,as=+x.awayScore;if(hs===as)acc.draws++;else if((hs>as&&x.home===m.home)||(as>hs&&x.away===m.home))acc.home++;else acc.away++;return acc;},{home:0,draws:0,away:0});
+  const confLabel=c=>c?.conf==="south"?"Southern":"Northern";
+  return '<article class="match-preview-card"><div class="match-preview-meta"><span>'+esc(normalizeMatchdayLabel(m.gameweek||m.date||"Gameweek TBC"))+'</span><span>UPCOMING FIXTURE</span></div><div class="match-preview-teams"><div class="match-preview-team">'+crest(m.home)+'<b>'+esc(m.home)+'</b><small>'+(home?confLabel(home)+' · '+home.pts+' PTS':'No table data')+'</small></div><div class="match-preview-vs">VS</div><div class="match-preview-team away">'+crest(m.away)+'<b>'+esc(m.away)+'</b><small>'+(away?confLabel(away)+' · '+away.pts+' PTS':'No table data')+'</small></div></div><div class="match-preview-details"><div><span>HOME FORM</span><div class="preview-form">'+formHTML(m.home)+'</div></div><div><span>AWAY FORM</span><div class="preview-form">'+formHTML(m.away)+'</div></div><div class="preview-h2h"><span>HEAD-TO-HEAD</span><b>'+record.home+' wins · '+record.draws+' draws · '+record.away+' wins</b><small>'+h2h.length+' previous meeting'+(h2h.length===1?"":"s")+'</small></div></div></article>';
+ }).join("");
+}
+
 function renderGoldenBoot(){
  const players=[...(data.players||[])].sort((a,b)=>(Number(b.goals)||0)-(Number(a.goals)||0)||String(a.name||"").localeCompare(String(b.name||"")));
  const ranked=players.filter(p=>(Number(p.goals)||0)>0).slice(0,20);
@@ -1243,8 +1323,8 @@ function openClub(name){let c=club(name);if(!c.logo)return;let s=stats().find(x=
 function fillSelects(){let opts=clubs.map(c=>`<option value="${c.name}">${c.name}</option>`).join("");["home-team","away-team","p-club","rating-club","manager-club","com-club"].forEach(id=>{let el=document.getElementById(id);if(!el)return;let v=el.value;el.innerHTML=opts;if(v)el.value=v});["t-from","t-to"].forEach(id=>{let el=document.getElementById(id),v=el.value;el.innerHTML='<option value="">Free agent / N/A</option>'+opts;if(v)el.value=v})}
 function fillPowSelect(){const el=document.getElementById("pow-player");if(!el)return;const v=el.value;el.innerHTML='<option value="">Select a player</option>'+(data.players||[]).map(p=>'<option value="'+esc(p.name)+'">'+esc(p.name)+' · '+esc(p.club||"No club")+'</option>').join("");if(v)el.value=v;}
 function fillPomSelect(){const el=document.getElementById("pom-player");if(!el)return;const v=el.value;el.innerHTML='<option value="">Select a player</option>'+(data.players||[]).map(p=>'<option value="'+esc(p.name)+'">'+esc(p.name)+' · '+esc(p.club||"No club")+'</option>').join("");if(v)el.value=v}
-const pageGroups={home:"home",matchday:"league",standings:"league","title-race":"league","power-rankings":"league","club-form":"league",fixtures:"league","season-calendar":"league","playoff-bracket":"league","league-records":"league","club-of-month":"league","matchday-of-week":"league","rivalry-tracker":"league","hall-of-fame":"league","matchday-predictions":"league",players:"players","golden-boot":"players","player-of-week":"players","player-of-month":"players",news:"media",totw:"players",ratings:"media",clubs:"clubs","club-profile":"clubs",admin:"admin"};
-const groupPages={league:[["matchday","Matchday Center"],["standings","Standings"],["title-race","Live Title Race"],["power-rankings","Power Rankings"],["club-form","Club Form & Playoff Race"],["fixtures","Fixtures & Results"],["season-calendar","Season Calendar"],["playoff-bracket","Playoff Bracket"],["league-records","League Records"],["club-of-month","Club of the Month"],["matchday-of-week","Matchday of the Week"],["rivalry-tracker","Rivalry Tracker"],["hall-of-fame","Hall of Fame"],["matchday-predictions","Predictions"]],players:[["players","Leaderboards"],["golden-boot","Golden Boot"],["player-of-week","Player of the Week"],["player-of-month","Player of the Month"],["totw","Team of the Week"]],media:[["news","League News"],["ratings","Match Ratings"]]};
+const pageGroups={home:"home",matchday:"league",standings:"league","title-race":"league","power-rankings":"league","club-form":"league",fixtures:"league","season-calendar":"league","playoff-bracket":"league","league-records":"league","club-of-month":"league","matchday-of-week":"league","rivalry-tracker":"league","hall-of-fame":"league","matchday-predictions":"league",players:"players","player-profiles":"players","golden-boot":"players","player-of-week":"players","player-of-month":"players",news:"media",totw:"players",ratings:"media",clubs:"clubs","club-profile":"clubs",admin:"admin"};
+const groupPages={league:[["matchday","Matchday Center"],["standings","Standings"],["title-race","Live Title Race"],["power-rankings","Power Rankings"],["club-form","Club Form & Playoff Race"],["match-previews","Match Previews"],["fixtures","Fixtures & Results"],["season-calendar","Season Calendar"],["playoff-bracket","Playoff Bracket"],["league-records","League Records"],["club-of-month","Club of the Month"],["matchday-of-week","Matchday of the Week"],["rivalry-tracker","Rivalry Tracker"],["hall-of-fame","Hall of Fame"],["matchday-predictions","Predictions"]],players:[["players","Leaderboards"],["player-profiles","Player Profiles"],["golden-boot","Golden Boot"],["player-of-week","Player of the Week"],["player-of-month","Player of the Month"],["totw","Team of the Week"]],media:[["news","League News"],["ratings","Match Ratings"]]};
 function showGroup(group){const first={home:"home",league:"matchday",players:"players",media:"news",clubs:"clubs",admin:"admin"}[group]||"home";showPage(first)}
 function showPage(p){if(p==="admin"&&!currentAdmin){document.getElementById("admin-login").style.display="block";document.getElementById("admin-tools").classList.remove("unlocked")}document.querySelectorAll("main>section").forEach(s=>s.classList.add("hidden"));document.getElementById("page-"+p).classList.remove("hidden");const group=pageGroups[p]||"home";document.querySelectorAll("#nav [data-group]").forEach(b=>b.classList.toggle("active",b.dataset.group===group));const sub=document.getElementById("subnav"),pages=groupPages[group]||[];sub.innerHTML=pages.length?'<label for="page-picker">GO TO</label><select id="page-picker" aria-label="Choose a page">'+pages.map(x=>'<option value="'+x[0]+'"'+(x[0]===p?" selected":"")+'">'+x[1]+'</option>').join("")+'</select>':"";sub.classList.toggle("hidden",!pages.length);window.scrollTo({top:0,behavior:"smooth"})}
 function updateAdminView(){const ok=isAuthorizedEditor(currentAdmin);document.getElementById("admin-login").style.display=ok?"none":"block";document.getElementById("admin-tools").classList.toggle("unlocked",ok);const manager=document.getElementById("owner-staff-manager");if(manager)manager.style.display=currentAdmin?.id===AUTHORIZED_ADMIN_UID?"block":"none";}
@@ -1279,6 +1359,9 @@ document.querySelectorAll("[data-club-conf]").forEach(b=>b.addEventListener("cli
 document.getElementById("fixture-filter").addEventListener("change",renderFixtures);
 document.getElementById("matchday-select").addEventListener("change",e=>{activeMatchday=e.target.value;renderMatchdayCenter();});
 document.getElementById("player-search").addEventListener("input",renderPlayers);
+document.getElementById("profile-search").addEventListener("input",renderPlayerProfiles);
+document.getElementById("player-profile-content").addEventListener("click",e=>{const open=e.target.closest("[data-profile-open]");if(open)openPlayerProfile(open.dataset.profileOpen);if(e.target.closest("[data-profile-back]")){selectedProfileName="";renderPlayerProfiles();}});
+document.addEventListener("click",e=>{const button=e.target.closest("[data-profile-name]");if(button)openPlayerProfile(button.dataset.profileName);});
 document.getElementById("match-form").addEventListener("submit",e=>{e.preventDefault();let home=document.getElementById("home-team").value,away=document.getElementById("away-team").value,status=document.getElementById("match-status").value;if(home===away){alert("Choose two different clubs.");return}let hs=document.getElementById("home-score").value,as=document.getElementById("away-score").value;if(status==="played"&&(hs===""||as==="")){alert("Enter both scores for a completed match.");return}data.matches.push({home,away,gameweek:document.getElementById("match-week").value.trim(),status,homeScore:status==="played"?hs:"",awayScore:status==="played"?as:""});e.target.reset();save();alert("Match saved. Standings have been updated if it was completed.")});
 
 document.getElementById("player-form").addEventListener("submit",e=>{e.preventDefault();data.players.push({name:document.getElementById("p-name").value,club:document.getElementById("p-club").value,position:document.getElementById("p-position").value,goals:document.getElementById("p-goals").value,assists:document.getElementById("p-assists").value,saves:document.getElementById("p-saves").value,tackles:document.getElementById("p-tackles").value});e.target.reset();save();alert("Player saved.")});
