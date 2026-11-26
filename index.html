@@ -265,12 +265,10 @@ body.mode-desktop footer{min-width:1050px}
 .title-race-panel{overflow:hidden}
 .title-race-panel .panel-title{padding:15px 17px;margin:0;border-bottom:1px solid var(--line)}
 .title-race-table{padding:0 14px 12px}
-.title-race-table td{color:#263449!important}.title-race-table td.team-cell,.title-race-table .club-name-button{color:#17263b!important}
-.title-race-table tbody tr:nth-child(-n+4){background:#effaf3}
-.title-race-table tbody tr:nth-child(4){border-bottom:3px solid #16834e}
-.title-race-table tbody tr:nth-child(n+5){background:#17263b!important;opacity:1}
-.title-race-table tbody tr:nth-child(n+5) td,.title-race-table tbody tr:nth-child(n+5) td.team-cell,.title-race-table tbody tr:nth-child(n+5) .club-name-button,.title-race-table tbody tr:nth-child(n+5) .pts{color:#f4f7fb!important}
-.title-race-table tbody tr:nth-child(-n+4) td:first-child{font-weight:950;color:#16834e}
+.title-race-table tbody tr{background:#f7f9fc!important;opacity:1}
+.title-race-table tbody tr td,.title-race-table tbody tr td.team-cell,.title-race-table .club-name-button,.title-race-table .pts{color:#263449!important}
+.title-race-table tbody tr.playoff-qualifier td:first-child{font-weight:950;color:#16834e!important}
+.title-race-table tbody tr.playoff-qualifier td:first-child::after{content:" ✓";color:#16834e;font-size:10px;font-weight:950}
 .title-race-stat{background:linear-gradient(135deg,#101c31,#1c3152);color:#fff;border-radius:12px;padding:16px 18px;min-width:0}
 .title-race-stat span{display:block;color:#b8c5d8;font-size:9px;font-weight:850;letter-spacing:.12em;text-transform:uppercase}
 .title-race-stat strong{display:block;font-size:23px;line-height:1.2;margin-top:5px;font-weight:950;overflow-wrap:anywhere}
@@ -586,7 +584,7 @@ function club(name){return clubs.find(c=>c.name===name)||{name:name||"TBC",short
 function crest(name){let c=club(name);return `<img class="club-mini" src="${c.logo||""}" alt="${esc(c.name)} crest" loading="lazy" onerror="this.style.display='none'">`}
 function stats(){return clubs.map(c=>{let s={...c,gp:0,w:0,d:0,l:0,gf:0,ga:0,pts:0};data.matches.filter(m=>m.status==="played"&&m.homeScore!==""&&m.awayScore!==""&&m.homeScore!=null&&m.awayScore!=null).forEach(m=>{let hs=+m.homeScore,as=+m.awayScore;if(m.home===c.name){s.gp++;s.gf+=hs;s.ga+=as;if(hs>as){s.w++;s.pts+=3}else if(hs===as){s.d++;s.pts++}else s.l++}if(m.away===c.name){s.gp++;s.gf+=as;s.ga+=hs;if(as>hs){s.w++;s.pts+=3}else if(as===hs){s.d++;s.pts++}else s.l++}});s.gd=s.gf-s.ga;return s})}
 function sorted(conf){return stats().filter(s=>s.conf===conf).sort((a,b)=>b.pts-a.pts||b.gd-a.gd||b.gf-a.gf||a.name.localeCompare(b.name))}
-function tableHTML(rows){return `<table><thead><tr><th>#</th><th>Club</th><th>GP</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>PTS</th></tr></thead><tbody>${rows.map((s,i)=>`<tr><td>${i+1}</td><td class="team-cell">${crest(s.name)}<button type="button" onclick="openClub('${esc(s.name)}')" class="club-name-button">${esc(s.name)}</button></td><td>${s.gp}</td><td>${s.w}</td><td>${s.d}</td><td>${s.l}</td><td>${s.gf}</td><td>${s.ga}</td><td>${s.gd>0?"+":""}${s.gd}</td><td class="pts">${s.pts}</td></tr>`).join("")}</tbody></table>`}
+function tableHTML(rows,showPlayoffMarkers=false){return `<table><thead><tr><th>#</th><th>Club</th><th>GP</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>PTS</th></tr></thead><tbody>${rows.map((s,i)=>`<tr class="${showPlayoffMarkers&&i<4?"playoff-qualifier":""}"><td>${i+1}</td><td class="team-cell">${crest(s.name)}<button type="button" onclick="openClub('${esc(s.name)}')" class="club-name-button">${esc(s.name)}</button></td><td>${s.gp}</td><td>${s.w}</td><td>${s.d}</td><td>${s.l}</td><td>${s.gf}</td><td>${s.ga}</td><td>${s.gd>0?"+":""}${s.gd}</td><td class="pts">${s.pts}</td></tr>`).join("")}</tbody></table>`}
 function matchHTML(m){let played=m.status==="played";return `<div class="match"><div class="match-team">${crest(m.home)}<b>${esc(m.home)}</b></div><div class="match-score">${played?`${m.homeScore} – ${m.awayScore}`:`<small>VS</small>`}<small>${esc(m.gameweek||m.date||"GAMEWEEK TBC")}</small></div><div class="match-team right"><b>${esc(m.away)}</b>${crest(m.away)}</div></div>`}
 function renderAll(){renderHome();renderStandings();renderTitleRace();renderPowerRankings();renderMatchdayCenter();renderFixtures();renderPlayers();renderGoldenBoot();renderPlayerOfWeek();renderPlayerOfMonth();renderClubs();renderNewsAndTotw();renderRatings();renderAdminRatings();renderAdminContentLists();fillSelects();fillPowSelect();fillPomSelect()}
 function renderHome(){
@@ -710,7 +708,7 @@ function renderTitleRace(){
   top.forEach((c,ci)=>{const vals=rows.map(r=>r.totals[c.name]||0),points=vals.map((v,i)=>x(i)+","+y(v)).join(" ");svg+='<polyline points="'+points+'" fill="none" stroke="'+colors[ci]+'" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>';vals.forEach((v,i)=>{if(i===vals.length-1)svg+='<circle cx="'+x(i)+'" cy="'+y(v)+'" r="4" fill="'+colors[ci]+'"/>';});});
   svg+='</svg>';
   chart.innerHTML=svg+'<div class="title-race-legend">'+top.map(c=>'<span><i style="background:'+c.color+'"></i>'+esc(c.name)+'</span>').join("")+'</div>';
-  table.innerHTML=tableHTML(ranked);
+  table.innerHTML=tableHTML(ranked,true);
  };
  renderConference("south");renderConference("north");
 }
