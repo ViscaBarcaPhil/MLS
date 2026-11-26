@@ -543,7 +543,7 @@ const SHARED_TABLE="mls_league_shared_state";
 function isAuthorizedEditor(user){return !!user&&(user.id===AUTHORIZED_ADMIN_UID||user.app_metadata?.role==="mls_staff");}
 function loginEmailFromInput(value){const v=value.trim();if(v.includes("@"))return v;const username=v.toLowerCase();if(!/^[a-z0-9_][a-z0-9_.-]{2,23}$/.test(username))throw new Error("Use a staff username with 3–24 letters, numbers, dots, underscores or hyphens.");return username+"@staff.mls.invalid";}
 function loadData(){try{return {...defaults,...JSON.parse(localStorage.getItem("mlsLeagueData")||"{}")}}catch(e){return structuredClone(defaults)}}
-function hasLeagueContent(value){return !!(value && ((value.matches||[]).length||(value.players||[]).length||(value.transfers||[]).length||(value.news||[]).length||(value.totw||[]).length||!!value.totwImage||(value.ratings||[]).length||(value.playerOfMonth||[]).length||(value.playerOfWeek||[]).length));}
+function hasLeagueContent(value){return !!(value && ((value.matches||[]).length||(value.players||[]).length||(value.transfers||[]).length||(value.news||[]).length||(value.totw||[]).length||!!value.totwImage||(value.ratings||[]).length||(value.playerOfMonth||[]).length||(value.playerOfWeek||[]).length||(value.seasonEvents||[]).length||Object.keys(value.clubManagers||{}).length||(value.clubOfMonth||[]).length||!!value.featuredMatchday));}
 async function save(){
   localStorage.setItem("mlsLeagueData",JSON.stringify(data));
   renderAll();
