@@ -61,7 +61,6 @@ client.on(Events.InteractionCreate, async interaction => {
     if (command === "withdraw") {
       const hadConsent = statements.getConsent.get(interaction.user.id);
       if (!hadConsent) return interaction.reply({ content: "You haven't opted in to MLS Guru cards.", ephemeral: true });
-      statements.removePlayer.run(statements.getPlayer ? (statements.getPlayer.get(interaction.user.id)?.id || -1) : -1);
       const player = statements.players.all().find(p => p.discord_user_id === interaction.user.id);
       if (player) statements.removePlayer.run(player.id);
       const removeConsent = require("./db").db.prepare("DELETE FROM consents WHERE user_id = ?");
